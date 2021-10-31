@@ -1,0 +1,19 @@
+/* Abstracts Styling */
+@import './abstracts/animations';
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './abstracts/functions';
+
+/* Base Styling */
+@import './base/reset';
+@import './base/typography';
+
+/* Components Styling */
+@import './components/headings';
+@import './components/buttons';
+
+/* Layout Styling */
+@import './layout/navbar';
+
+
+/* Pages Styling */
