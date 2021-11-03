@@ -38,31 +38,58 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
 /* =============== Common ========================== */
-.editButton {
+.editButtonMar {
   /* background-color: red; */
   margin-top: -3rem;
   margin-bottom: 1rem;
 }
+
 .editButton img {
   padding: 1rem;
-  /* border: 1px solid red; */
 }
-
 .editButton img:hover {
   background-color: rgb(235, 235, 235);
-  /* width: 150%; */
   border-radius: 50%;
 }
 
+.linkblue {
+  color: blue;
+  font-weight: 600;
+}
+/* ================ Profile ========================== */
+.profileLeftDiv {
+  margin-left: 10vw;
+  width: 55vw;
+}
+@media only screen and (max-width: 700px) {
+  .profileLeftDiv {
+    margin-left: 0rem;
+    width: 55vw;
+    width: 100%;
+  }
+}
+.PMD {
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+.PAMD-Header {
+  margin-bottom: 2rem;
+}
 /*======== profileFrontCardMainDiv =========== */
 .profileFrontCardMainDiv {
   /* background-color: aqua; */
   background-color: rgb(255, 255, 255);
-  width: 55vw;
-  margin-left: 10vw;
+  /* width: 55vw; */
+  /* margin-left: 10vw; */
   border-radius: 1rem;
+  padding: 0rem;
 }
 .PFC-BackgroundImageBox {
   /* z-index: -10; */
@@ -158,4 +185,44 @@ body {
 
 .PFCC-BottomPanelDiv h4 {
   color: rgba(0, 0, 0, 0, 9);
+}
+
+/*  ====================== Profile About ================= */
+/* .profileAboutMainDiv {
+  background-color: rgb(255, 255, 255);
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+} */
+
+.aboutMePre {
+  /* width: 80%; */
+  height: fit-content;
+}
+
+.aboutSeeMore span {
+  cursor: pointer;
+  /* position: relative;
+  right: 10px; */
+}
+
+/* ================= Profile Activity =======================*/
+
+.PA-ActivityBox {
+  margin-top: 2rem;
+}
+.activityImages img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+.seeAllActivities {
+  cursor: pointer;
+  /* width: 55vw;
+  margin: 0rem;
+  padding: 0rem; */
+  /* background-color: red; */
+}
+.seeAllActivities :hover {
+  /* background: rgb(235, 235, 235); */
 }
