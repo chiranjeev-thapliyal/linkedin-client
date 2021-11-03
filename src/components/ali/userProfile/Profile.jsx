@@ -1,18 +1,19 @@
 import React from 'react'
 import ProfileAbout from './ProfileAbout'
+import ProfileActivity from './ProfileActivity'
 import ProfileFrontCard from './ProfileFrontCard'
 
 export default function Profile() {
     return (
         <div className="profileMainDiv">
 
-            <h1>Testing Profile.jsx</h1>
+            {/* <h1>Testing Profile.jsx</h1> */}
 
             {/* 
-            profileFrontCard 
-            profileAbout
+           // profileFrontCard 
+           // profileAbout
             profileFeatured
-            profileActivity
+           // profileActivity
             profileExperienceAndEducation
             profileSkills&Endorsements
             profileAccomplishments
@@ -21,8 +22,13 @@ export default function Profile() {
             profilePeople also viewed
             profilePeople you may know 
             */}
-            <ProfileFrontCard />
-            <ProfileAbout />
+            <div className="profileLeftDiv">
+
+                <ProfileFrontCard />
+                <ProfileAbout />
+                <ProfileActivity />
+                <ProfileActivity />
+            </div>
 
 
         </div>// End of profileMainDiv 
