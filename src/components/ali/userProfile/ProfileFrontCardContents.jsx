@@ -1,34 +1,72 @@
 import React from 'react'
 
+
+
+
 export default function ProfileFrontCardContents() {
+
+    let myToshikaLogo = "https://media-exp1.licdn.com/dms/image/C510BAQFeiuMjbTJsow/company-logo_100_100/0/1558501394727?e=1643846400&v=beta&t=QU5U_Tg8brsXHTbZH7yVu_SB_Ve38ewg-p6BlZjRYb0";
+    let masaiLogo = "https://media-exp1.licdn.com/dms/image/C560BAQG-DVu64TnfaQ/company-logo_100_100/0/1620381956947?e=1643846400&v=beta&t=d2His-ud2lF1M0BeU4ByDKDTxJc5Zmrl13QDoBJDWIA";
+
     return (
         <div className="ProfileFrontCardContents">
+            <div className="editButton flex-rowR" >
+                <img src="icons/editButton.svg" alt="edit" />
+            </div>
+            <div className="flex-sb">
+                <div class="PFCC-LeftPanel mt2rem positionRelative">
+                    <div className="PFCC-LeftPanelHeader">
+                        <h1>MD ALI SHAHANSHAH</h1>
+                    </div>
+                    <div class="PFCC-LeftPanelSubHeader">
+                        <h3> Learning MERN stack | Aspiring Full Stack Web Developer at Masai School, Bengaluru, Karnataka</h3>
+                    </div>
+                </div> {/* PFCC-LeftPanel */}
 
-            <div class="PFCC-LeftPanel mt2rem positionRelative">
-                <div className="PFCC-LeftPanelHeader">
-                    <h1>MD ALI SHAHANSHAH</h1>
-                </div>
-                <div class="PFCC-LeftPanelSubHeader">
-                    <h3> Learning MERN stack | Aspiring Full Stack Web Developer at Masai School, Bengaluru, Karnataka</h3>
-                </div>
-                <div class="PFCC-RightPanel flex">
-                    <img src="experienceLogo.png" />
-                    <a href="#Experience">
-                        Mytoshika IT Solutions</a>
-
-                    <img src="educationLogo.png" />
-                    <a href="#Education">
-                        Masai School</a>
-                </div>
-
-                <div class="PFCC-BottomPanel">
-                    <div className="PFCC-BottomPanelAddress">
-                        <p>Bengaluru, Karnataka, India <span>Contact info</span></p>
+                <div class="PFCC-RightPanel flex-col">
+                    <div className="flex-row">
+                        <img src={myToshikaLogo} alt="companyLogo" />
+                        <a href="#Experience">
+                            Mytoshika IT Solutions</a>
+                    </div>
+                    <div className="flex-row">
+                        <img src={masaiLogo} alt="educationLogo" />
+                        <a href="#Education">
+                            Masai School</a>
                     </div>
                 </div>
+            </div>
+            <div class="PFCC-BottomPanel" style={{ marginTop: "0.5rem" }}>
+                <div className="PFCC-BottomPanelAddress">
+                    <p>Bengaluru, Karnataka, India <span>Contact info</span></p>
+                </div>
+
+                <div className="PFCC-BottomPanelConnection">
+                    <div style={{ marginTop: "1rem" }}>
+                        <p>
+                            <span >287 connections</span></p>
+                    </div>
+                </div>
+                <div className="PFCC-BottomPanelButtons flex-row ">
+
+                    <button style={{ background: "rgb(10, 102, 194) ", color: "white", border: "transparent" }}>Open to</button>
+                    <button>Add selection</button>
+                    <button>More</button>
+
+                </div>
+
+                <div className="PFCC-BottomPanelDiv  ">
+
+                    <h4>Open to work</h4>
+                    <p>Full Stack Developer · Full-stack Developer · Full Stack Engineer · React Developer · Javascript Developer roles</p>
+
+                    <span>See all details</span>
+                </div>
+
+            </div> {/* PFCC-BottomPanel */}
 
 
-            </div> {/* PFCC-LeftPanel */}
+
         </div >//End of ProfileFrontCardContents
 
     )
