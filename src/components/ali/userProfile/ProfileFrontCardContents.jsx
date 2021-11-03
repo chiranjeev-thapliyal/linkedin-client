@@ -10,7 +10,7 @@ export default function ProfileFrontCardContents() {
 
     return (
         <div className="ProfileFrontCardContents">
-            <div className="editButton flex-rowR" >
+            <div className="editButton flex-rowR editButtonMar" >
                 <img src="icons/editButton.svg" alt="edit" />
             </div>
             <div className="flex-sb">
