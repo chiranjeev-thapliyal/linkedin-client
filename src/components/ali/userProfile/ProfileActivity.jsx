@@ -10,7 +10,7 @@ export default function ProfileActivity() {
             <div className="ProfileActivityHeader flex-sb PAMD-Header editButton">
 
                 <h2>Activity</h2>
-                <img src="icons/editButton.svg" alt="editButton" />
+                {/* <img src="icons/editButton.svg" alt="editButton" /> */}
 
             </div>
 
@@ -38,7 +38,7 @@ export default function ProfileActivity() {
                 }
             </div>
 
-            <hr style={{ margin: "0px", marginTop: "2rem" }} />
+            <hr style={{ margin: "0px", marginTop: "2rem" }} className="shadowB divider" />
 
             <div className="seeAllActivities flex-c">
                 <h3>  See all activities</h3>
