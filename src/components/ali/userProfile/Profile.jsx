@@ -1,4 +1,5 @@
 import React from 'react'
+import ExperienceAndEducation from './ExperienceAndEducation'
 import ProfileAbout from './ProfileAbout'
 import ProfileActivity from './ProfileActivity'
 import ProfileFrontCard from './ProfileFrontCard'
@@ -28,6 +29,7 @@ export default function Profile() {
                 <ProfileAbout />
                 <ProfileActivity />
                 <ProfileActivity />
+                <ExperienceAndEducation />
             </div>
 
 
