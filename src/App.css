@@ -42,6 +42,19 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+.shadowB {
+  /* background-color: rgba(155, 49, 49, 0.08); */
+  background-color: rgba(240, 240, 240, 1);
+}
+.shadowC {
+  color: rgb(235, 235, 235);
+  background-color: rgba(240, 240, 240, 1);
+}
+.divider {
+  height: 0.8px;
+  border: transparent;
+}
+
 /* =============== Common ========================== */
 .editButtonMar {
   /* background-color: red; */
@@ -218,11 +231,6 @@ body {
 }
 .seeAllActivities {
   cursor: pointer;
-  /* width: 55vw;
-  margin: 0rem;
-  padding: 0rem; */
-  /* background-color: red; */
-}
-.seeAllActivities :hover {
-  /* background: rgb(235, 235, 235); */
+  margin-top: 1rem;
+  margin-bottom: -1rem;
 }
