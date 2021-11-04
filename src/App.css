@@ -53,6 +53,7 @@ body {
 .divider {
   height: 0.8px;
   border: transparent;
+  border: red;
 }
 
 /* =============== Common ========================== */
@@ -69,11 +70,27 @@ body {
   background-color: rgb(235, 235, 235);
   border-radius: 50%;
 }
-
+.editButton h2 {
+  font-weight: 400;
+}
 .linkblue {
   color: blue;
   font-weight: 600;
 }
+
+.more {
+  border-bottom: 5rem;
+  font-size: large;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+  font-weight: 600;
+}
+.more:hover {
+  /* background-color: red; */
+  /* background-color: rgb(235, 235, 235); */
+  cursor: pointer;
+}
+
 /* ================ Profile ========================== */
 .profileLeftDiv {
   margin-left: 10vw;
@@ -233,4 +250,39 @@ body {
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: -1rem;
+}
+
+.ProfileActivityHeader h2 {
+  font-weight: 400;
+}
+/* ========================= ExperienceAndEducation ========== */
+
+.EAE-CardMainDiv {
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+  margin-left: -2rem;
+}
+
+/*================== SkillsAndEndorsements =================== */
+.SkillsAndEndorsementsCardBox h3 {
+  font-weight: 500;
+  color: black;
+}
+.quizButton {
+  background-color: transparent;
+  border: 2px solid rgb(11, 103, 194);
+  color: rgb(11, 103, 194);
+  /* width: 10rem; */
+  /* height: 2rem; */
+  border-radius: 5rem;
+  font-size: medium;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+.quizButton:hover {
+  background-color: rgb(226, 240, 254);
+  border: 2px solid blue;
+  cursor: pointer;
 }
