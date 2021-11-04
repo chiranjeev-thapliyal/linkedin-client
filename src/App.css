@@ -6,8 +6,21 @@ body {
 .ml-2 {
   margin-left: 2rem;
 }
-.mt2rem {
+
+.mr1rem {
+  margin-right: 1rem;
+}
+.mr2rem {
+  margin-right: 2rem;
+}
+.mt05rem {
+  margin-top: 0.5rem;
+}
+.mt1rem {
   margin-top: 1rem;
+}
+.mt-15rem {
+  margin-top: -1.5rem;
 }
 .ml2rem {
   margin-left: 2rem;
@@ -77,6 +90,14 @@ body {
   color: blue;
   font-weight: 600;
 }
+.lightBlueC {
+  color: #0a66c2;
+  color: rgba(10, 153, 222);
+  color: rgb(11, 103, 194);
+}
+.lightBlueB {
+  background-color: rgb(11, 103, 194);
+}
 
 .more {
   border-bottom: 5rem;
@@ -89,6 +110,12 @@ body {
   /* background-color: red; */
   /* background-color: rgb(235, 235, 235); */
   cursor: pointer;
+}
+.weight400 {
+  font-weight: 400;
+}
+.weight600 {
+  font-weight: 600;
 }
 
 /* ================ Profile ========================== */
