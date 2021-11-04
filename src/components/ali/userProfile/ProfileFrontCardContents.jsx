@@ -14,7 +14,7 @@ export default function ProfileFrontCardContents() {
                 <img src="icons/editButton.svg" alt="edit" />
             </div>
             <div className="flex-sb">
-                <div class="PFCC-LeftPanel mt2rem positionRelative">
+                <div class="PFCC-LeftPanel mt-15rem positionRelative">
                     <div className="PFCC-LeftPanelHeader">
                         <h1>MD ALI SHAHANSHAH</h1>
                     </div>
