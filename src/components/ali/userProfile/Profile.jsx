@@ -3,6 +3,7 @@ import ExperienceAndEducation from './ExperienceAndEducation'
 import ProfileAbout from './ProfileAbout'
 import ProfileActivity from './ProfileActivity'
 import ProfileFrontCard from './ProfileFrontCard'
+import SkillsAndEndorsements from './SkillsAndEndorsements'
 
 export default function Profile() {
     return (
@@ -15,7 +16,7 @@ export default function Profile() {
            // profileAbout
             profileFeatured
            // profileActivity
-            profileExperienceAndEducation
+           // profileExperienceAndEducation
             profileSkills&Endorsements
             profileAccomplishments
             profileInterests
@@ -28,8 +29,9 @@ export default function Profile() {
                 <ProfileFrontCard />
                 <ProfileAbout />
                 <ProfileActivity />
-                <ProfileActivity />
                 <ExperienceAndEducation />
+                <SkillsAndEndorsements />
+                <ProfileActivity />
             </div>
 
 
