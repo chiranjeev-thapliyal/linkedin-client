@@ -1,6 +1,7 @@
 import React from 'react'
 import ExperienceAndEducation from './ExperienceAndEducation'
 import ProfileAbout from './ProfileAbout'
+import ProfileAccomplishment from './ProfileAccomplishment'
 import ProfileActivity from './ProfileActivity'
 import ProfileFrontCard from './ProfileFrontCard'
 import SkillsAndEndorsements from './SkillsAndEndorsements'
@@ -31,6 +32,11 @@ export default function Profile() {
                 <ProfileActivity />
                 <ExperienceAndEducation />
                 <SkillsAndEndorsements />
+                <ProfileAccomplishment />
+
+
+
+
                 <ProfileActivity />
             </div>
 
