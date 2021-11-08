@@ -1,7 +1,9 @@
+import { NetworksPage } from "./components/views/Network/NetworksPage";
+
 function App() {
   return (
     <div className='App'>
-      <p>Linkedin Frontend</p>
+      <NetworksPage />
     </div>
   );
 }
