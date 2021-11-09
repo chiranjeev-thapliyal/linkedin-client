@@ -1,7 +1,9 @@
 body {
   background-color: rgb(243, 242, 239);
 }
-
+img {
+  cursor: pointer;
+}
 /* ============= General ===================== */
 .ml-2 {
   margin-left: 2rem;
@@ -18,6 +20,9 @@ body {
 }
 .mt1rem {
   margin-top: 1rem;
+}
+.mt2rem {
+  margin-top: 2rem;
 }
 .mt-15rem {
   margin-top: -1.5rem;
@@ -118,6 +123,24 @@ body {
   font-weight: 600;
 }
 
+.img5 img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+.img-cp img {
+  cursor: pointer;
+}
+.cardText p {
+  color: gray;
+  font-weight: 400;
+  font-size: small;
+}
+.cardText h3 {
+  color: black;
+  font-weight: 500;
+  font-size: small;
+}
 /* ================ Profile ========================== */
 .profileLeftDiv {
   margin-left: 10vw;
@@ -125,7 +148,8 @@ body {
 }
 @media only screen and (max-width: 700px) {
   .profileLeftDiv {
-    margin-left: 0rem;
+    margin: 0rem;
+    padding: 0%;
     width: 55vw;
     width: 100%;
   }
@@ -266,7 +290,15 @@ body {
 /* ================= Profile Activity =======================*/
 
 .PA-ActivityBox {
+  min-width: 50%;
+  max-width: 50%;
   margin-top: 2rem;
+}
+@media only screen and (max-width: 700px) {
+  .PA-ActivityBox {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 .activityImages img {
   width: 5rem;
@@ -312,4 +344,17 @@ body {
   background-color: rgb(226, 240, 254);
   border: 2px solid blue;
   cursor: pointer;
+}
+
+/* ============== Profile Interests=========== */
+
+.PICB-Items {
+  min-width: 50%;
+  max-width: 50%;
+}
+@media only screen and (max-width: 700px) {
+  .PICB-Items {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
