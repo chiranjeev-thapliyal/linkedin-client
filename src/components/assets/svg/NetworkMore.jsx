@@ -11,6 +11,7 @@ function NetworkMore() {
         width="16"
         height="16"
         focusable="false"
+        margin="0.3rem"
       >
         <path d="M1 5l7 4.61L15 5v2.39L8 12 1 7.39z"></path>
       </svg>

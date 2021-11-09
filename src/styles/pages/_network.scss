@@ -437,21 +437,30 @@
 .netNavFooter {
     
     div {
+        width: 25rem;
+        // border: 1px solid black;
         display: flex;
-        flex-wrap: wrap;
-        // text-align: center;
+        flex-wrap: wrap;  
         margin-top: 3rem;
+        margin-left: 3rem;
+        // letter-spacing: 0.1cm;
         justify-content: center;
         p {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 400;
-            line-height: 0.8cm;
+            line-height: 0.5cm;
             margin-left: 1.3rem;
+            text-align: center;
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
                 color: rgb(10,102,194);
             }
+        }
+        .netNavPrivate {
+            margin-top: 0px;
+            padding-top: 0.5rem;
+            padding-bottom: 0.3rem;
         }
     }
 }

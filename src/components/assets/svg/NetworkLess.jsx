@@ -12,7 +12,7 @@ function NetworkLess() {
         height="16"
         focusable="false"
       >
-        <path d="M1 5l7 4.61L15 5v2.39L8 12 1 7.39z"></path>
+        <path d="M15 11L8 6.39 1 11V8.61L8 4l7 4.61z"></path>
       </svg>
     );
 }

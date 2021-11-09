@@ -1,14 +1,12 @@
 import NetworkConnections from "../../assets/svg/NetworkConnections";
 import { useState } from "react";
-import {
-  MdOutlineKeyboardArrowDown,
-  MdOutlineKeyboardArrowUp,
-} from "react-icons/md";
 import NetworkContacts from "../../assets/svg/NetworkContacts";
 import NetworkFollow from "../../assets/svg/NetworkFollow";
 import NetworkGroup from "../../assets/svg/NetworkGroup";
 import NetworkEvent from "../../assets/svg/NetworkEvent";
 import NetworkPages from "../../assets/svg/NetworkPages";
+import NetworkLess from "../../assets/svg/NetworkLess";
+import NetworkMore from "../../assets/svg/NetworkMore";
 import NetworkNews from "../../assets/svg/NetworkNews";
 import NetworkHashtag from "../../assets/svg/NetworkHashtag";
 
@@ -85,11 +83,11 @@ export const NetworksNavItem = ({ title, count, children }) => {
       <button onClick={handleToggle} className="NetNavBtn1">
         {show ? (
           <>
-            Show More <MdOutlineKeyboardArrowDown />
+            Show More <NetworkMore />
           </>
         ) : (
           <>
-            show Less <MdOutlineKeyboardArrowUp />
+            show Less <NetworkLess />
           </>
         )}
       </button>
