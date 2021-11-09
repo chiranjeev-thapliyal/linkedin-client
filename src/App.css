@@ -438,3 +438,15 @@ img {
   padding: 1rem;
   border-radius: 1rem;
 }
+
+/* =================== Profile Right Side ============ */
+.UPR {
+  background-color: rgb(255, 255, 255);
+  width: 20vw;
+  height: fit-content;
+  margin-left: 10%;
+  border-radius: 1rem;
+
+  padding: 2rem;
+  /* margin-top: 2rem; */
+}
