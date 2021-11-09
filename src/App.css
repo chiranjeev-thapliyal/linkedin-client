@@ -5,15 +5,27 @@ img {
   cursor: pointer;
 }
 /* ============= General ===================== */
-.ml-2 {
-  margin-left: 2rem;
-}
 
 .mr1rem {
   margin-right: 1rem;
 }
 .mr2rem {
   margin-right: 2rem;
+}
+.mr2rem {
+  margin-right: 2rem;
+}
+.ml1rem {
+  margin-left: 1rem;
+}
+.ml2rem {
+  margin-left: 2rem;
+}
+.ml-2rem {
+  margin-left: 2rem;
+}
+.ml3rem {
+  margin-left: 3rem;
 }
 .mt05rem {
   margin-top: 0.5rem;
@@ -29,6 +41,15 @@ img {
 }
 .ml2rem {
   margin-left: 2rem;
+}
+.mb05rem {
+  margin-bottom: 0.5rem;
+}
+.mb1rem {
+  margin-bottom: 1rem;
+}
+.mb1rem {
+  margin-bottom: 1rem;
 }
 .positionRelative {
   position: relative;
@@ -59,6 +80,10 @@ img {
 .flex-wrap {
   display: flex;
   flex-wrap: wrap;
+}
+.flex-sl {
+  /* display: flex; */
+  /* background-color: #0a66c2; */
 }
 .shadowB {
   /* background-color: rgba(155, 49, 49, 0.08); */
@@ -116,6 +141,12 @@ img {
   /* background-color: rgb(235, 235, 235); */
   cursor: pointer;
 }
+.weight200 {
+  font-weight: 200;
+}
+.weight300 {
+  font-weight: 300;
+}
 .weight400 {
   font-weight: 400;
 }
@@ -140,6 +171,18 @@ img {
   color: black;
   font-weight: 500;
   font-size: small;
+}
+.mxw33 {
+  min-width: 33%;
+  max-width: 33%;
+  /* min-width: 50%;
+  max-width: 50%; */
+}
+.pd1rem {
+  padding: 1rem;
+}
+.pd2rem {
+  padding: 2rem;
 }
 /* ================ Profile ========================== */
 .profileLeftDiv {
@@ -357,4 +400,41 @@ img {
     min-width: 100%;
     max-width: 100%;
   }
+}
+
+/* ===================== ProfileDashBoard ============ */
+.ProfileDashBoard {
+  background-color: rgb(220, 230, 241);
+  text-align: left;
+}
+.PD-MidBox {
+  background-color: white;
+  padding: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-radius: 1rem;
+}
+
+.PD-MidBox div {
+  /* max-width: 30%; */
+}
+.verticalLine {
+  background-color: rgba(240, 240, 240, 1);
+  width: 0.2rem;
+  height: 100%;
+  /* margin-top: -1rem; */
+  /* margin-bottom: -2rem; */
+  padding-bottom: 0rem;
+}
+.PD-TextBox {
+  width: 10rem;
+  min-width: 80%;
+  /* flex-basis: 0; */
+  margin-left: 1rem;
+  /* width: fit-content; */
+}
+.PD-BottomBox {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
 }
