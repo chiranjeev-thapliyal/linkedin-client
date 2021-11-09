@@ -15,7 +15,8 @@ export default function ProfileDashboardBottom() {
                     </div>
 
                     <div className="flex-col ml1rem">
-                        <h3>Creator mode:</h3><span> Off</span>
+                        <p><strong>Creator mode: </strong>
+                            <span>Off</span></p>
                         <p>Grow your audience and get discovered by highlighting content on your profile.</p>
                     </div>
                 </div>
@@ -32,7 +33,7 @@ export default function ProfileDashboardBottom() {
                     </div>
 
                     <div className="flex-col ml1rem">
-                        <h3>My Network</h3>
+                        <strong> <p>My Network</p></strong>
                         <p>Manage your connections, events, and interests.</p>
 
                     </div>
@@ -50,7 +51,7 @@ export default function ProfileDashboardBottom() {
                     </div>
 
                     <div className="flex-col ml1rem">
-                        <h3>Salary insights</h3>
+                        <strong>  <p>Salary insights</p></strong>
                         <p>See how your salary compares to others in the community.</p>
                     </div>
                 </div>
@@ -67,7 +68,7 @@ export default function ProfileDashboardBottom() {
                     </div>
 
                     <div className="flex-col ml1rem">
-                        <h3>My items</h3>
+                        <strong> <p>My items</p></strong>
                         <p>Keep track of your jobs, courses and articles.</p>
                     </div>
                 </div>
@@ -84,6 +85,6 @@ export default function ProfileDashboardBottom() {
 
 
 
-        </div>
+        </div >
     )
 }
