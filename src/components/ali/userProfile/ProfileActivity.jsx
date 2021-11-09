@@ -27,7 +27,7 @@ export default function ProfileActivity() {
                             <div className="activityImages">
                                 <img src="demo.png" alt="activityImage" />
                             </div>
-                            <div className="flex-col">
+                            <div className="flex-col cardText" style={{ lineHeight: "2rem" }}>
                                 <h3>NIce thought. I will also Apply 🤔 🙄</h3>
                                 <p>MD ALI commented</p>
                             </div>
