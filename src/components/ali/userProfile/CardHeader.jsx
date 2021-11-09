@@ -3,7 +3,7 @@ import React from 'react'
 export default function CardHeader({ title, rightTitle, image1, image2 }) {
     return (
 
-        <div className="CardHeader flex-sb  editButton">
+        <div className="CardHeader flex-sb  editButton img-cp">
             {title ? <h2>{title}</h2> : ""}
 
             <div className="flex-row">
