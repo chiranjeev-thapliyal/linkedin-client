@@ -140,6 +140,7 @@
 
 .uploadedImage img{
   width: 80%;
-  height: 70%;
-  
+  /* height: 70%; */
+  height: fit-content;
+  margin-bottom: 10rem;
 }

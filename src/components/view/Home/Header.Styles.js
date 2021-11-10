@@ -10,7 +10,6 @@ export const Container = styled.div`
   top: 0;
   padding: 0 24px;
   left: 0;
-  
 `;
 
 export const Content = styled.div`
@@ -91,8 +90,6 @@ export const Wrapper = styled.ul`
       border-color: rgba(0, 0, 0, 0.9);
     }
   }
-
-
 `;
 export const NavList = styled.li`
   display: flex;
@@ -134,42 +131,49 @@ export const NavList = styled.li`
 
 export const Signout = styled.div`
   position: absolute;
-  top: 45px;
+  top: 8rem;
+  right: 20rem;
+  width: 25rem;
+  height: fit-content;
+  // height: 35rem;
   background: white;
-  border-radius: 100px;
-  height: 40px;
-  font-size: 1rem;
   transition-duration: 167ms;
-  
-    display: none;
-
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  // display: none;
 `;
 
-
 export const User = styled(NavList)`
-  a > svg {
+  .profileTab > svg {
     width: 24px;
     border-radius: 50%;
   }
-  a > img {
+  .profileTab > img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
   }
-  span {
+  .profileTab > span {
     display: flex;
     align-items: center;
   }
 
-  &:hover {
-    ${Signout} {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
+  .profileTab >div {
+    display: flex;
   }
+
+  // &:hover {
+  //   ${Signout} {
+  //     // align-items: center;
+  //     // display: block;
+  //     // justify-content: center;
+  //     display: flex;
+  //     flex-direction: column;
+  //   }
+  // }
 `;
 export const Work = styled(User)`
-border-left:1px solid rgba(0,0,0,0.08)
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
-

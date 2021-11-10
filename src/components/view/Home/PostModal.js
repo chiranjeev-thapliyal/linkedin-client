@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../../../styles/components/PostModal.css";
 import styled from "styled-components";
+// import FileThumbnail from "react-video-upload-preview";
 
 export default function PostModal({ showModal, setShowModal }) {
   const [statusText, setStatusText] = useState("");
   const [sharedImage, setSharedImage] = useState("");
+  const [videoLink, setVideoLink] = useState("");
 
   const handleChange = (e) => {
     const image = e.target.files[0];
@@ -14,6 +16,16 @@ export default function PostModal({ showModal, setShowModal }) {
     }
 
     setSharedImage(image);
+  };
+
+  const handleVideoUpload = (e) => {
+    const video = e.target.files[0];
+    if (video === "" || video === undefined) {
+      alert(`File upladed is not a video`);
+      return;
+    }
+
+    setVideoLink(video);
   };
 
   return (
@@ -48,7 +60,11 @@ export default function PostModal({ showModal, setShowModal }) {
           />
         </div>
 
-        <div className='uploadedImage' >{sharedImage && <img src={URL.createObjectURL(sharedImage)} alt="" /> }</div>
+        {/* <FileThumbnail file={videoLink} /> */}
+
+        <div className="uploadedImage">
+          {sharedImage && <img src={URL.createObjectURL(sharedImage)} alt="" />}
+        </div>
 
         <div className="modalFooter">
           <div className="modalOptions">
@@ -64,7 +80,19 @@ export default function PostModal({ showModal, setShowModal }) {
                 onChange={handleChange}
               />
             </div>
-            <img src="/images/modal_video.svg" alt="" />
+            <div>
+              <label for="video-input">
+                <img src="/images/modal_video.svg" alt="" />
+              </label>
+              <input
+                type="file"
+                name="video"
+                accept="video/mp4,video/x-m4v,video/*"
+                id="video-input"
+                value={videoLink}
+                onChange={handleVideoUpload}
+              />
+            </div>
             <img src="/images/modal_doc.svg" alt="" />
             <img src="/images/modal_hire.svg" alt="" />
             <img src="/images/modal_occa.svg" alt="" />
