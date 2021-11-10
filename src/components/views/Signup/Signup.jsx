@@ -1,13 +1,15 @@
-import NetworkLinkedIcon from "../../assets/svg/NetworkLinkedIcon";
-import { SignupGoogle } from "../../assets/svg/SignupGoogle";
-import SignupLogo from "../../assets/svg/SignupLogo";
 import signupImage1 from "./images/image1.svg";
 import linkedin from "./images/linkedin.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthContextProvider";
 
 export const Signup = () => {
   const [join, setJoin] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const history = useHistory();
+  const { handleLogin } = useContext(AuthContext);
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -32,15 +34,15 @@ export const Signup = () => {
     console.log("user: ", user);
     try {
       console.log("before req: ");
-      let res = await axios.post(`http://localhost:8080/auth/register`, {
-        email: "abc@abc.com",
-        password: "1234",
-        first_name: "abc",
-        last_name: "abc"
-      });
+      let res = await axios.post(`http://localhost:8080/auth/register`, user);
       console.log("after req: ");
       console.log(res);
+      // setRegisterSuccess(true);
+      handleLogin(res.data.token);
+      history.push("/home");
     } catch (err) {
+      setJoin(false);
+      alert("User already exists");
       console.log(err);
     }
   };
@@ -51,7 +53,9 @@ export const Signup = () => {
         <img src={linkedin} alt="" className="signupLogo" />
         <div>
           <button className="btn1">Join now</button>
-          <button className="btn2">Sign in</button>
+          <Link to="signin">
+            <button className="btn2">Sign in</button>
+          </Link>
         </div>
       </div>
 
@@ -90,15 +94,6 @@ export const Signup = () => {
                 <button onClick={handleJoin}>Agree & Join</button>
               </div>
             )}
-            {/* <div className="orDiv">
-                <div></div>
-                <p>or</p>
-                <div></div>
-              </div>
-              <div className="googleBtn">
-                <SignupGoogle className="googleIcon" />
-                <p>Sign in with Google</p>
-              </div> */}
             {join && (
               <div className="continueDiv">
                 <input
@@ -115,8 +110,8 @@ export const Signup = () => {
                   name="last_name"
                   // value={user.last_name}
                   onChange={handleChange}
-                />
-                <button onClick={joinNow}>Continue</button>
+                /> 
+                <button onClick={joinNow}>Continue</button> 
               </div>
             )}
           </div>

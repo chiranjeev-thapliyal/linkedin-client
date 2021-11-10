@@ -1,3 +1,4 @@
+import { Routes } from "./Routes/Routes";
 import SignupLogo from "./components/assets/svg/SignupLogo";
 import { JobsPage } from "./components/views/Jobs/JobsPage";
 import { NetworksPage } from "./components/views/Network/NetworksPage";
@@ -9,8 +10,9 @@ function App() {
     <div className='App'>
       {/* <NetworksPage /> */}
       {/* <Signup /> */}
-      <JoinNowPage />
+      {/* <JoinNowPage /> */}
       {/* <JobsPage /> */}
+      <Routes />
     </div>
   );
 }

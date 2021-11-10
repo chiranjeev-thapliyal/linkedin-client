@@ -1,9 +1,12 @@
 import linkedinLogin from "./images/linkedinLogin.PNG";
 import { SignupGoogle } from "../../assets/svg/SignupGoogle";
 import loginFooter from "./images/loginFooter.PNG";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export const JoinNowPage = () => {
+  const history = useHistory();
   const [signinUser, setSigninUser] = useState({
     email: "",
     password: ""
@@ -17,8 +20,16 @@ export const JoinNowPage = () => {
     })
   }
 
-  const handleSignin = () => {
+  const handleSignin = async () => {
     console.log(signinUser);
+    try {
+      let res = await axios.post(`http://localhost:8080/auth/login`, signinUser)
+      console.log(res);
+      history.push("/home");
+    }
+    catch (err) {
+      console.log(err);
+    }
   }
 
   return (
