@@ -1,0 +1,59 @@
+.statusBox {
+  background-color: white;
+  padding: 1.5rem 0;
+   border-radius: 1rem;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 10%), 0 0 0 1px rgb(0 0 0 / 10%);
+}
+
+.postInput {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.postInput > img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.postInput > div {
+  width: 77%;
+  border: none;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 2rem;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 1px rgb(0 0 0 / 20%);
+  height: 5rem;
+  border-radius: 2.5rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+
+.postingOptions{
+     /* border: 1px solid red; */
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin-top: 1rem;
+}
+
+.postingOptions>div{
+    height: 5rem;
+     /* border: 1px solid red; */
+     width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 500;
+}
+
+.iconsDiv:nth-child(4){
+    width: 25% ;
+}
+
+.iconsDiv:hover{
+    background-color: #e6e4e3;
+}

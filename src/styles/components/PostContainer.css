@@ -1,0 +1,90 @@
+.mainPostContainer {
+  background: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.post_headerLeft > img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.post_header {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  padding: 1rem;
+}
+
+.post_headerLeft {
+  /* border: 1px solid red; */
+  display: flex;
+  padding: 1rem;
+}
+
+.post_headerLeft h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.post_headerLeft p {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.profile_details{
+    text-align: left;
+}
+
+.post_body>img{
+    width: 100%;
+height: 100%;
+object-fit: contain;
+}
+
+.post_body>div{
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.social_counts{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: start;
+
+}
+
+.social_counts>span{
+    margin-left: 0.5rem;
+}
+.social_counts>img{
+    margin-left: 0.2rem;
+}
+
+.post_footer{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.post_footer>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1.5rem  2rem;
+    border-radius: 0.5rem;
+}
+
+.post_footer>div>p{
+    margin-left: 0.6rem;
+}
+
+.post_footer>div:hover{
+    background-color: #e6e4e3;
+}
+

@@ -1,0 +1,145 @@
+.outerDiv {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1544;
+}
+
+.innerDiv {
+  border: 1px solid white;
+  width: 40vw;
+  height: 60vh;
+  margin: 5vh auto;
+  display: flex;
+  background: white;
+  max-height: 90%;
+  border-radius: 0.8rem;
+  position: relative;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modalHeader > p {
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.modalHeader > div {
+  margin-right: 2rem;
+  border-radius: 50%;
+  padding: 0.7rem;
+  aspect-ratio: 1/1;
+}
+
+.modalHeader > div:hover {
+  background-color: #e6e4e3;
+}
+
+.userInfo {
+  display: flex;
+  padding: 1rem;
+}
+
+.userInfo > img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.userInfo > p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  margin-left: 1rem;
+}
+
+.modalOptions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+}
+
+.modalOptions input {
+  display: none;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* border: 1px solid red; */
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.modalButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 40%;
+}
+
+.modalButton > div {
+  display: flex;
+  align-items: center;
+}
+.modalButton > div > p {
+  margin-left: 0.5rem;
+}
+
+/* .modalButton > button {
+  min-width: 60px;
+  border-radius: 20px;
+  margin-right: 1.5rem;
+  background: #f5f5f5;
+  border: none;
+  padding: 1rem;
+} */
+/* .modalButton > button:hover {
+  background-color: #2b2b52;
+} */
+
+.statusInput {
+  width: 90%;
+  height: 25%;
+  margin: 0 auto;
+  resize: none;
+}
+
+.statusInput > input {
+  width: 100%;
+  border: none;
+  /* border: 1px solid red; */
+  min-height: 10%;
+  font-size: 1.8rem;
+}
+.statusInput > input:focus {
+  outline: none;
+}
+
+.uploadedImage{
+  text-align: center;
+}
+
+.uploadedImage img{
+  width: 80%;
+  height: 70%;
+  
+}
