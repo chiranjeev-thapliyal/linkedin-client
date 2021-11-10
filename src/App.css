@@ -48,8 +48,8 @@ img {
 .mb1rem {
   margin-bottom: 1rem;
 }
-.mb1rem {
-  margin-bottom: 1rem;
+.mb2rem {
+  margin-bottom: 2rem;
 }
 .positionRelative {
   position: relative;
@@ -184,6 +184,12 @@ img {
 .pd2rem {
   padding: 2rem;
 }
+.black {
+  color: black;
+}
+.small {
+  font-size: small;
+}
 /* ================ Profile ========================== */
 .profileLeftDiv {
   margin-left: 10vw;
@@ -285,6 +291,7 @@ img {
   margin-right: 2rem;
   margin-top: 1rem;
   width: auto;
+  width: fit-content;
   height: auto;
   padding: 0.7rem;
   padding-left: 1.5rem;
@@ -442,11 +449,29 @@ img {
 /* =================== Profile Right Side ============ */
 .UPR {
   background-color: rgb(255, 255, 255);
-  width: 20vw;
+  width: fit-content;
+  width: 23vw;
   height: fit-content;
   margin-left: 10%;
   border-radius: 1rem;
 
   padding: 2rem;
   /* margin-top: 2rem; */
+}
+
+@media only screen and (max-width: 700px) {
+  .profileRightDiv {
+    display: none;
+  }
+}
+/* =================== Profile Right Side Middle============ */
+.peopleCardSingle img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: transparent;
+}
+
+.PeopleCard {
+  line-height: 2rem;
 }

@@ -19,27 +19,29 @@ export default function Profile() {
             {/* 
         
             profileFeatured
-        
             profileEdit public profile & URL
-            profilePeople also viewed
-            profilePeople you may know 
+            
             */}
             <div className="flex-row">
                 <div className="profileLeftDiv">
 
                     <ProfileFrontCard />
+                    <ProfileDashBoard />
                     <ProfileAbout />
                     <ProfileActivity />
                     <ExperienceAndEducation />
                     <SkillsAndEndorsements />
                     <ProfileAccomplishment />
                     <ProfileInterests />
-                    <ProfileDashBoard />
 
                 </div>
 
                 <div className="profileRightDiv">
-                    <Middle />
+
+                    <Middle text="People also viewed" />
+                    <div className="mt2rem">
+                        <Middle text="People you may know" />
+                    </div>
 
                 </div>
             </div>

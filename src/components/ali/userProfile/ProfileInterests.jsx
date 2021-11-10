@@ -30,7 +30,7 @@ export default function ProfileInterests() {
                             <div className="PICB-Items" >
                                 <ProfileInterestCard imgUrl={e.imgUrl} title={e.title} subTitle={e.subTitle} followers={e.followers} />
 
-                                {i % 2 != 0 ? <br /> : ""}
+                                {i % 2 !== 0 ? <br /> : ""}
                                 {<br />}
                             </div>
 

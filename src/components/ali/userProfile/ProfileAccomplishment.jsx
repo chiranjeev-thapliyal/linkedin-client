@@ -1,7 +1,7 @@
-import React from 'react'
-import CardHeader from './CardHeader'
-import Divider from './Divider'
-import ProfileAccomplishmentCard from './ProfileAccomplishmentCard'
+import React from 'react';
+import CardHeader from './CardHeader';
+import Divider from './Divider';
+import ProfileAccomplishmentCard from './ProfileAccomplishmentCard';
 
 export default function ProfileAccomplishment() {
 
