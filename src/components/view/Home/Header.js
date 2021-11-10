@@ -37,7 +37,7 @@ export default function Header() {
                 <span>Home</span>
               </a>
             </S.NavList>
-            <S.NavList >
+            <S.NavList>
               <a>
                 <img src="/images/nav-network.svg" alt="" />
                 <span>My Network</span>
@@ -119,13 +119,13 @@ export default function Header() {
             )}
 
             <S.Work>
-              <a href="">
+              <div className="profileTab">
                 <img src="/images/nav-work.svg" alt="" />
                 <div>
                   <span>Work</span>
                   <img src="/images/down-icon.svg" alt="" />
                 </div>
-              </a>
+              </div>
             </S.Work>
           </S.Wrapper>
         </S.Nav>
