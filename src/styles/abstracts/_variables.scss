@@ -5,13 +5,13 @@ $primary-font-family: -apple-system, system-ui, 'Helvetica Neue', sans-serif;
 $font-size-sm: 1.2rem;
 $font-size-md: 1.4rem;
 $font-size-lg: 1.6rem;
-$font-size-xl: 2.0rem;
+$font-size-xl: 2rem;
 $font-size-xxl: 2.4rem;
 $font-size-xxxl: 3.2rem;
 
 /* Font Weights */
-$font-weigt-regular: 400;
-$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-medium: 600;
 $font-weight-bold: 700;
 $font-weight-bolder: 900;
 
@@ -20,3 +20,10 @@ $color-black: #000000e6;
 $color-white: #fff;
 $color-gray: #00000099;
 $color-blue: #0a66c2;
+
+$disabled-txt: #0000004d;
+$disabled-bg: #00000014;
+$messenger-button-hover: #00000014;
+$messenger-search-input-box: #eef3f8;
+$online-color: green;
+$color-black-faint: #00000014;

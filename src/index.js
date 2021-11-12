@@ -4,10 +4,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import './styles/global.scss';
+import SocketContextProvider from './context/SocketContextProvider';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <SocketContextProvider>
+        <App />
+      </SocketContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

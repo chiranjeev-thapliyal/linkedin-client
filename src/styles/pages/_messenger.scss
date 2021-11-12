@@ -1,0 +1,294 @@
+.messenger-chat-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  align-items: end;
+}
+
+.messenger {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 28rem;
+  min-height: 4.7rem;
+  background-color: $color-white;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0.5px 0.5px 2px 0px #949494;
+  // position: fixed;
+  // bottom: 0;
+  // right: 2rem;
+  transition: height 0.2s ease-in-out;
+
+  &-open {
+    height: calc(100vh - 100px);
+  }
+
+  &-close {
+    height: 4.7rem;
+  }
+
+  & > .header {
+    display: flex;
+    width: inherit;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8px 0 0;
+    position: relative;
+    max-height: 4.7rem;
+    border-bottom: 1px solid #00000014;
+
+    & > .messenger-left {
+      display: flex;
+      align-items: center;
+      color: $color-black;
+      font-weight: $font-weight-medium;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 4px;
+      padding: 4px;
+      position: relative;
+      flex-grow: 1;
+      height: 100%;
+      cursor: pointer;
+
+      & > .messenger-user-pic {
+        width: 3.2rem;
+        height: 3.2rem;
+        position: relative;
+
+        & > img {
+          width: 100%;
+          height: 100%;
+          // width: 32px;
+          // height: 32px;
+          box-sizing: border-box;
+          background-clip: content-box;
+          border-radius: 50%;
+        }
+
+        & > .messenger-online-indicator {
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          border-radius: 50%;
+          background-color: #057642;
+          box-shadow: 0 0 0 2px $color-white;
+        }
+      }
+
+      & > .messenger-heading {
+        max-width: 230px;
+        font-weight: $font-weight-medium;
+        padding-left: 1rem;
+      }
+    }
+
+    & > .messenger-right {
+      transition-duration: 167ms;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      opacity: 1;
+      position: relative;
+
+      & > button:hover {
+        background-color: $messenger-button-hover;
+        color: $color-black;
+        border-radius: 50%;
+      }
+
+      & > .messenger-more-options {
+        height: 3.2rem;
+        width: 3.2rem;
+        line-height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-white;
+        border: none;
+        color: $color-gray;
+      }
+    }
+  }
+
+  & > .search {
+    display: flex;
+    flex-direction: column;
+    max-height: 3.2rem;
+    margin-top: 0.5rem;
+
+    & > .input-container {
+      position: relative;
+      background: 0 0;
+      width: 100%;
+      max-height: 100%;
+
+      & > li {
+        position: absolute;
+        top: 16px;
+        left: 24px;
+        color: $color-gray;
+      }
+
+      & > input#message {
+        background-color: $messenger-search-input-box;
+        box-shadow: none;
+        width: calc(100% - 24px);
+        height: 100%;
+        margin: 8px 12px;
+        padding: 0 28px 2px 32px;
+        border: none;
+        color: $color-black;
+        line-height: 2rem;
+        border-radius: 4px;
+      }
+
+      & > .search-options {
+        display: flex;
+        margin-right: 8px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        & > button {
+          position: absolute;
+          top: -34px;
+          right: 16px;
+          color: $color-gray;
+          cursor: pointer;
+          background: none;
+          border: none;
+          padding: 0;
+        }
+
+        & > .options-list-wrapper {
+          display: none;
+          position: absolute;
+          top: -4px;
+          right: 0;
+          box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 6px 9px rgb(0 0 0 / 20%);
+          border-radius: 1rem 0 1rem 1rem;
+
+          & > .options-list {
+            width: 16.8rem;
+            height: 21.8rem;
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+
+            & > li {
+              height: calc(100vh - 21.8rem);
+              padding-left: 1rem;
+              position: relative;
+              display: flex;
+              justify-content: left;
+              align-items: center;
+              color: $color-gray;
+              font-weight: $font-weight-medium;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & > .list {
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+    max-height: 74.5rem;
+    width: 100%;
+    overflow-y: auto;
+
+    & > .connection {
+      width: 100%;
+      padding-left: 0.8rem;
+      height: 6.6rem;
+      display: flex;
+      color: $color-gray;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-black-faint;
+      }
+
+      & > .left {
+        min-width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > .profile-pic {
+          width: 4.8rem;
+          height: 4.8rem;
+          display: flex;
+          position: relative;
+
+          & > img {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            background-clip: content-box;
+            border-radius: 50%;
+          }
+
+          & > .online-status {
+            border: 2px solid green;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: $color-white;
+            bottom: 0;
+            right: 0;
+            box-shadow: 0 0 0 2px $color-white;
+          }
+        }
+      }
+
+      & > .right {
+        height: auto;
+        padding: 8px 12px 8px 8px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        vertical-align: top;
+        border-bottom: 1px solid $color-black-faint;
+        justify-content: space-between;
+        overflow: hidden;
+
+        & > .row {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+
+          & > h4 {
+            font-weight: $font-weight-regular;
+          }
+
+          & > time {
+          }
+        }
+
+        & > .conversation-body {
+          width: calc(100% - 18px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          padding-right: 0.8rem;
+          font-size: $font-size-sm;
+        }
+      }
+    }
+  }
+}

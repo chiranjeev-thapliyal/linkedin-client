@@ -9,7 +9,6 @@ html {
   padding: 0;
   list-style: none;
   text-decoration: none;
-  color: $color-gray;
   box-sizing: inherit;
 }
 
@@ -19,6 +18,10 @@ body {
 
 section {
   margin-top: 4rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
@@ -31,4 +34,14 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.truncate {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }

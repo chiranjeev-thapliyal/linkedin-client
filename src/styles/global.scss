@@ -11,9 +11,11 @@
 /* Components Styling */
 @import './components/headings';
 @import './components/buttons';
+@import './components/chatbox';
 
 /* Layout Styling */
 @import './layout/navbar';
 
 
 /* Pages Styling */
+@import './pages/messenger';
