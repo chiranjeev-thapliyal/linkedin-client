@@ -1,5 +1,7 @@
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useState, useEffect } from "react";
 import NetworksLink from "../../assets/svg/NetworksLink";
+import { AuthContext } from "../../../Contexts/AuthContextProvider";
 
 const inviteData = [
   {
@@ -46,52 +48,134 @@ const inviteData = [
   },
 ];
 
-export const NetworkInvitations = () => {
-    console.log(inviteData);
-    const [invitesMore, setInvitesMore] = useState(false);
+export const NetworkInvitations = ({id}) => {
+  // console.log(inviteData);
+  const [invitesMore, setInvitesMore] = useState(false);
+  const { token } = useContext(AuthContext);
+  const [pendingInvites, setPendingInvites] = useState([]);
+  const [acceptId, setAcceptId] = useState("");
 
-    return (
-        <div className="NetworkIvitationsMainDiv">
-            <div className="NetworkIvitationsDiv1">
-                <p>Invitations</p>
-                <p>See all {inviteData.length}</p>
+  useEffect(() => {
+    getInvitations();
+    
+  }, [])
+
+    const getInvitations = async () => {
+      try {
+        let res = await axios.get(
+          `http://localhost:8080/users/pending-requests`,
+          {
+            body: {
+              id: id,
+            },
+            headers: {
+              Authorization: `Bearer ${token} `,
+            },
+          }
+          
+        );
+        console.log("Invitations:", res);
+        setPendingInvites(res.data.user.pendingReceived)
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+
+  const handleAccept = async (id) => {
+    setAcceptId(id);
+    try {
+      let res = await axios.post(`http://localhost:8080/users/accept-request`, {
+        params: {
+          id: id
+        }
+      })
+      console.log("accept-request:", res);
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+  
+    return pendingInvites.length ? (
+      <div className="NetworkIvitationsMainDiv">
+        <div className="NetworkIvitationsDiv1">
+          <p>Invitations</p>
+          <p>See all {inviteData.length}</p>
+        </div>
+        {pendingInvites.map((e, i) => {
+          return i < 3 && acceptId != e._id ? (
+            <div className="inviteItems">
+              <img src={e.avatar} height="50px" width="50px" alt="" />
+              <div className="inviteDetails">
+                <p>
+                  {e.first_name} {e.last_name}{" "}
+                </p>
+                <p>{e.desc}</p>
+                <div style={{ display: "flex" }}>
+                  <NetworksLink />
+                  <p>{e.common}</p>
+                </div>
+              </div>
+              <div className="btnDiv">
+                <button className="ignoreBtn">Ignore</button>
+                <button className="acceptBtn">Accept</button>
+              </div>
             </div>
-            {inviteData.map((e, i) => {
-                return i < 3 ? (
-                  <div className="inviteItems">
-                    <img src={e.avatar} height="50px" width="50px" alt="" />
-                    <div className="inviteDetails">
-                      <p>{e.name}</p>
-                      <p>{e.desc}</p>
-                      <div style={{ display: "flex" }}>
-                        <NetworksLink />
-                        <p>{e.common}</p>
-                      </div>
-                    </div>
-                    <div className="btnDiv">
-                      <button className="ignoreBtn">Ignore</button>
-                      <button className="acceptBtn">Accept</button>
-                    </div>
-                  </div>
-                ) : invitesMore ? (
-                  <div className="inviteItems">
-                    <img src={e.avatar} height="50px" width="50px" alt="" />
-                    <div className="inviteDetails">
-                      <p>{e.name}</p>
-                      <p>{e.desc}</p>
-                      <div style={{ display: "flex" }}>
-                        <NetworksLink />
-                        <p>{e.common}</p>
-                      </div>
-                    </div>
-                    <div className="btnDiv">
-                      <button className="ignoreBtn">Ignore</button>
-                      <button className="acceptBtn">Accept</button>
-                    </div>
-                  </div>
-                ) : null;
-            })}
-            <button onClick={() => {setInvitesMore(!invitesMore)}} className="invitesMore">{ invitesMore ? "Show Fewer" : "Show More"}</button>
+          ) : i < 3 && acceptId == e._id ? (
+            <div style={{ display: "flex" }}>
+              <img src={e.image} alt="" />
+              <p>{e.first_name} is a connection now.</p>
+            </div>
+          ) : invitesMore && acceptId != e._id ? (
+            <div className="inviteItems">
+              <img src={e.avatar} height="50px" width="50px" alt="" />
+              <div className="inviteDetails">
+                <p>
+                  {e.first_name} {e.last_name}
+                </p>
+                <p>{e.desc}</p>
+                <div style={{ display: "flex" }}>
+                  <NetworksLink />
+                  <p>{e.common}</p>
+                </div>
+              </div>
+              <div className="btnDiv">
+                <button className="ignoreBtn">Ignore</button>
+                <button
+                  className="acceptBtn"
+                  onClick={() => {
+                    handleAccept(id);
+                  }}
+                >
+                  Accept
+                </button>
+              </div>
+            </div>
+          ) : (
+            invitesMore &&
+            acceptId != e._id && (
+              <div style={{ display: "flex" }}>
+                <img src={e.image} alt="" />
+                <p>{e.first_name} is a connection now.</p>
+              </div>
+            )
+          );
+        })}
+        <button
+          onClick={() => {
+            setInvitesMore(!invitesMore);
+          }}
+          className="invitesMore"
+        >
+          {invitesMore ? "Show Fewer" : "Show More"}
+        </button>
+      </div>
+    ) : (
+      <div className="NetworkIvitationsMainDiv">
+        <div className="NetworkIvitationsPendingDiv">
+          <p>No pending Invites</p>
+        </div>
       </div>
     );
 }

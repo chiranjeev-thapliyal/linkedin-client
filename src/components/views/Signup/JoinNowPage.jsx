@@ -46,14 +46,6 @@ export const JoinNowPage = () => {
           <input type="password" name="password" onChange={handleSigninUser} />
         </div>
         <p className="agreeText">Forgot Password ?</p>
-        {/* <p className="agreeText">
-          By clicking Agree & Join, you agree to the Linkedin{" "}
-          <span>
-            User <br />
-            Agreement
-          </span>
-          , <span>Privacy Policy</span> and <span>Cookie Policy.</span>
-        </p> */}
         <button onClick={handleSignin}>Sign in</button>
         <div className="LoginOrDiv">
           <div></div>

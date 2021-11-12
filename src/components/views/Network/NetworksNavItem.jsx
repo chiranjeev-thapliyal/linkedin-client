@@ -24,59 +24,75 @@ export const NetworksNavItem = ({ title, count, children }) => {
         <div className="NavItemsFlex">
           <NetworkConnections className="NavIcon" />
           <p className="netNavItemTitle">Connections</p>
-          <p className="netNavItemCount" style={{ marginLeft: "150px" }}>
+          {/* <p className="netNavItemCount"
+            style={{ marginLeft: "9rem" }}
+          >
             358
-          </p>
+          </p> */}
         </div>
         <div className={show ? "hide" : "unhide"}>
           <div className="NavItemsFlex">
             <NetworkContacts className="NavIcon" />
             <p className="netNavItemTitle">Contacts</p>
-            <p className="netNavItemCount" style={{ marginLeft: "185px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "12.5rem" }}
+            >
               73
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkFollow className="NavIcon" />
             <p className="netNavItemTitle">People I Follow</p>
-            <p className="netNavItemCount" style={{ marginLeft: "142px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "8rem" }}
+            >
               11
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkGroup className="NavIcon" />
             <p className="netNavItemTitle">Group</p>
-            <p className="netNavItemCount" style={{ marginLeft: "210px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "14.8rem" }}
+            >
               4
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkEvent className="NavIcon" />
             <p className="netNavItemTitle">Event</p>
-            <p className="netNavItemCount" style={{ marginLeft: "218px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "15.5rem" }}
+            >
               1
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkPages className="NavIcon" />
             <p className="netNavItemTitle">Pages</p>
-            <p className="netNavItemCount" style={{ marginLeft: "215px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "15.5rem" }}
+            >
               9
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkNews className="NavIcon" />
             <p className="netNavItemTitle">Newsletters</p>
-            <p className="netNavItemCount" style={{ marginLeft: "173px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "11.3rem" }}
+            >
               0
-            </p>
+            </p> */}
           </div>
           <div className="NavItemsFlex">
             <NetworkHashtag className="NavIcon" />
             <p className="netNavItemTitle">Hashtag</p>
-            <p className="netNavItemCount" style={{ marginLeft: "200px" }}>
+            {/* <p className="netNavItemCount"
+              style={{ marginLeft: "13.8rem" }}
+            >
               1
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

@@ -8,11 +8,11 @@ import { Signup } from "./components/views/Signup/Signup";
 function App() {
   return (
     <div className='App'>
-      {/* <NetworksPage /> */}
+      <NetworksPage />
       {/* <Signup /> */}
       {/* <JoinNowPage /> */}
       {/* <JobsPage /> */}
-      <Routes />
+      {/* <Routes /> */}
     </div>
   );
 }

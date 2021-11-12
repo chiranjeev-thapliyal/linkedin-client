@@ -6,24 +6,24 @@ export const NetworkFooter = () => {
     <div>
       <div className="netNavFooter">
         <div>
-          <p style={{paddingLeft: "1.6rem"}}>About</p>
+          <p style={{ paddingLeft: "1.6rem" }}>About</p>
           <p>Accessiblity</p>
-          <br />
           <p>Help Center</p>
           <div className="netNavPrivate">
             <p>Private Terms</p>
             <NetworkMore />
           </div>
-          <p>Ad Choices</p>
-          <p>Advertising</p>
+          <p style={{ marginTop: "0.3rem" }}>Ad Choices</p>
+          <p style={{ marginTop: "0.3rem" }}>Advertising</p>
           <div className="netNavPrivate">
             <p>Business Services</p>
             <NetworkMore />
           </div>
-          <p>Get the LinkedIn App</p>
+          <p style={{ marginTop: "0.3rem" }}>Get the LinkedIn App</p>
+          <br />
           <p>More</p>
         </div>
-        <div style={{ display: "flex", paddingBottom: "1rem" }}>
+        <div style={{ display: "flex" }}>
           <NetworkLinkedIcon />
           <p style={{ marginTop: "-3px", marginLeft: "5px" }}>
             LinkedIn Corporation &#169; 2021

@@ -1,10 +1,16 @@
+import { JobsNav } from "./JobsNav"
 
 
 export const JobsPage = () => {
 
     return (
-        <div>
-            <h1>Welcome to Jobs Page</h1>
+        <div className="jobsMainDiv">
+            <div className="JobsSubDiv">
+                <div className="jobsLeftDiv">
+                    <JobsNav />
+                </div>
+                <div className="jobsRightDiv"></div>
+            </div>
         </div>
     )
 }

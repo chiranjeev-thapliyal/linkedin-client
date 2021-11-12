@@ -1,4 +1,7 @@
 import { NetworkSuggestionItem } from "./NetworkSuggestionItem";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Contexts/AuthContextProvider";
 
 const suggestData1 = [
   {
@@ -83,7 +86,37 @@ const suggestData1 = [
   },
 ];
 
-export const NetworkSuggestion1 = ({heading1}) => {
+
+export const NetworkSuggestion1 = ({ heading1, handleId }) => {
+  const { token } = useContext(AuthContext);
+  const [recommendations, setRecommendations] = useState([]);
+  
+  useEffect(() => {
+    getConnects();
+    return () => {
+      
+    }
+  }, [])
+
+  const getConnects = async () => {
+    try {
+      let res = await axios.get(
+        `http://localhost:8080/users/recommendations`,
+        {
+        headers: {
+          Authorization: `Bearer ${token} `,
+        }
+        }
+      );
+      console.log("Recommendations:", res);
+      setRecommendations(res.data.recommendations);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  
+
   return (
     <div className="NetSuggestion1">
       <div className="NetSugHeading1">
@@ -91,10 +124,10 @@ export const NetworkSuggestion1 = ({heading1}) => {
         <p>See all</p>
       </div>
       <div className="NetSuggestionsAll">
-        {suggestData1.map((e, i) => {
+        {recommendations.map((e, i) => {
           return (
             <div key={e.id} className="NetworkSuggestions">
-              <NetworkSuggestionItem {...e} />
+              <NetworkSuggestionItem {...e} handleId={handleId}/>
             </div>
           );
         })}
