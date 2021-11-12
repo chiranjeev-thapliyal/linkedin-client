@@ -53,6 +53,7 @@ object-fit: contain;
 .post_body>div{
     text-align: left;
     font-size: 1.2rem;
+    display: flex;
 }
 
 .social_counts{
@@ -60,6 +61,11 @@ object-fit: contain;
     display: flex;
     justify-content: start;
 
+}
+
+.post_body button{
+  border: none;
+  background-color: white;
 }
 
 .social_counts>span{
