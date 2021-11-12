@@ -1,31 +1,83 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../../styles/components/PostModal.css";
 import styled from "styled-components";
-// import FileThumbnail from "react-video-upload-preview";
+import axios from "axios";
+import { AuthContext } from "../../../Contexts/AuthContextProvider";
 
 export default function PostModal({ showModal, setShowModal }) {
+  const { token } = useContext(AuthContext);
   const [statusText, setStatusText] = useState("");
   const [sharedImage, setSharedImage] = useState("");
-  const [videoLink, setVideoLink] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const [fileInputState, setFileInputState] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
-  const handleChange = (e) => {
-    const image = e.target.files[0];
-    if (image === "" || image === undefined) {
-      alert(`File upladed is not an image`);
-      return;
-    }
+  const [image, setImage] = useState("");
+  const [data, setData] = useState();
 
-    setSharedImage(image);
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
   };
 
-  const handleVideoUpload = (e) => {
-    const video = e.target.files[0];
-    if (video === "" || video === undefined) {
-      alert(`File upladed is not a video`);
-      return;
-    }
+  const handleChange = async (e) => {
+    const image = e.target.files[0];
+    previewFile(image);
+    setSelectedFile(image);
+    setFileInputState(e.target.value);
+  };
 
-    setVideoLink(video);
+  const handleSubmitFile = () => {
+    if (!selectedFile) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+      uploadImage(reader.result);
+    };
+    reader.onerror = () => {
+      console.error("AHHHHHHHH!!");
+      setErrMsg("something went wrong!");
+    };
+  };
+
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      const { data } = await axios.post(
+        "http://localhost:8080/api/upload",
+        JSON.stringify({ data: base64EncodedImage }),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      const res = await axios.post(
+        "http://localhost:8080/posts",
+        {
+          title: statusText,
+          media: [data.url],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("Making new post", res);
+
+      setFileInputState("");
+      setPreviewSource("");
+      setSuccessMsg("Image uploaded successfully");
+    } catch (err) {
+      console.error(err);
+      setErrMsg("Something went wrong!");
+    }
   };
 
   return (
@@ -60,10 +112,9 @@ export default function PostModal({ showModal, setShowModal }) {
           />
         </div>
 
-        {/* <FileThumbnail file={videoLink} /> */}
-
         <div className="uploadedImage">
-          {sharedImage && <img src={URL.createObjectURL(sharedImage)} alt="" />}
+          {/* {sharedImage && <img src={URL.createObjectURL(sharedImage)} alt="" />} */}
+          {previewSource && <img src={previewSource} alt="" />}
         </div>
 
         <div className="modalFooter">
@@ -84,14 +135,6 @@ export default function PostModal({ showModal, setShowModal }) {
               <label for="video-input">
                 <img src="/images/modal_video.svg" alt="" />
               </label>
-              <input
-                type="file"
-                name="video"
-                accept="video/mp4,video/x-m4v,video/*"
-                id="video-input"
-                value={videoLink}
-                onChange={handleVideoUpload}
-              />
             </div>
             <img src="/images/modal_doc.svg" alt="" />
             <img src="/images/modal_hire.svg" alt="" />
@@ -106,7 +149,12 @@ export default function PostModal({ showModal, setShowModal }) {
               <p>Anyone</p>
             </div>
 
-            <PostButton disabled={!statusText ? true : false}>Post</PostButton>
+            <PostButton
+              disabled={!statusText ? true : false}
+              onClick={handleSubmitFile}
+            >
+              Post
+            </PostButton>
           </div>
         </div>
       </div>

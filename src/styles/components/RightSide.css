@@ -1,0 +1,52 @@
+.newsBox li {
+  /* font-size: 14px; */
+  margin-left: 1rem;
+  list-style-type: disc;
+  /* border: 1px solid red; */
+  /* list-style-position: inside; */
+  text-align: left;
+  font-weight: 500;
+  padding: 1rem 0;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.newsBox button {
+  border: none;
+  background: white;
+}
+
+.newsBox h3 {
+  font-weight: 500;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.9);
+}
+.newsBox {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+    border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 1px rgb(0 0 0 / 20%);
+}
+
+.buttonContainer {
+  /* border: 1px solid red; */
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  padding: 0.4rem;
+}
+
+.buttonContainer:hover {
+  background-color: #f5f5f5;
+}
+.buttonContainer:hover > button {
+  background-color: #f5f5f5;
+}
+
+.buttonContainer img {
+  margin-left: 0.5rem;
+}
+.buttonContainer button {
+  font-weight: 550;
+}

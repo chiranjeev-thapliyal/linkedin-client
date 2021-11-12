@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../styles/components/leftSide.css";
+import Bookmark from "../../assets/svg/Bookmark";
 
 export default function LeftSide() {
   return (
@@ -14,8 +15,11 @@ export default function LeftSide() {
         <img src="../images/HB.jpg" alt="" />
       </div>
       <div className="userDetails">
-        <div className="userName"> User Name</div>
-        <div> User summary</div>
+        <div className="userName"> Himanshu Bisht</div>
+        <div className="userSummary">
+          Learning MERN Stack | Aspiring Full Stack Developer at Masai School,
+          Bengaluru, Karnataka | Competitive Programmer
+        </div>
       </div>
 
       <div className="connectionDetails">
@@ -40,7 +44,7 @@ export default function LeftSide() {
       </div>
 
       <div className="items premium">
-        <img src="/images/item-icon.svg" alt="" />
+        <Bookmark />
         <p>My items </p>
       </div>
     </div>

@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/components/PostContainer.css";
+import { checkProfileImage } from "../../../utils/common.utils";
+import axios from "axios";
+import CommentBox from "./CommentBox";
 
-export default function PostContainer() {
+export default function PostContainer({ id, title, media, user }) {
+  const { first_name, last_name, profile_img, createdAt } = user;
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/comments/posts/${id}`)
+      .then(({ data }) => {
+        setComments(data?.comments);
+        // console.log(data);
+        // console.log(id);
+      })
+
+      .catch((err) => console.log(err));
+  }, [id]);
+
   return (
     <div className="mainPostContainer">
       <div className="post_header">
         <div className="post_headerLeft">
-          <img
-            src="https://media-exp1.licdn.com/dms/image/C4E03AQFmeJIz0DYD9A/profile-displayphoto-shrink_200_200/0/1625409631133?e=1642032000&v=beta&t=VQwKOFqHxw1L3S_OR5gx1wK0MzCSICZcCGCgD05Msx0"
-            alt=""
-          />
+          <img src={checkProfileImage(profile_img)} alt="" />
 
           <div className="profile_details">
-            <h3>Himanshu Bisht</h3>
+            <h3>
+              {first_name} {last_name}
+            </h3>
             <p>Working on project</p>
-            <p>Date</p>
+            <p>{createdAt}</p>
           </div>
         </div>
 
@@ -22,11 +40,8 @@ export default function PostContainer() {
       </div>
 
       <div className="post_body">
-        <div>Description</div>
-        <img
-          src="https://media-exp1.licdn.com/dms/image/C4D22AQG1l3uIL4wOrg/feedshare-shrink_2048_1536/0/1636443701847?e=1639612800&v=beta&t=ukPy5Ool7HggJui2V2l7MFbKW9eo0PbIkjaht305UGc"
-          alt=""
-        />
+        <div>{title}</div>
+        <img src={media} alt="" />
       </div>
 
       <div className="social_counts">
@@ -45,7 +60,7 @@ export default function PostContainer() {
         />
         <span>122</span>
         <span>.</span>
-        <span>12 comments</span>
+        <span>{comments?.length} comments</span>
       </div>
 
       <div className="post_footer">
@@ -66,6 +81,7 @@ export default function PostContainer() {
           <p>Send</p>
         </div>
       </div>
+      {showCommentBox && <CommentBox />}
     </div>
   );
 }
