@@ -191,6 +191,10 @@ img {
   font-size: small;
 }
 /* ================ Profile ========================== */
+.profileMainDiv {
+  margin-top: 10rem;
+}
+
 .profileLeftDiv {
   margin-left: 10vw;
   width: 55vw;
@@ -229,6 +233,8 @@ img {
   width: 100%;
   height: 100%;
   /* z-index: -8; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 .PFC-FrontCardDownBox {
   padding: 2rem;

@@ -1,7 +1,7 @@
 .mainContainer {
   /* border: 1px solid red; */
   display: grid;
-  grid-template-columns: 1.1fr 3fr 1.3fr;
+  grid-template-columns: 1.1fr 2.4fr 1.3fr;
   gap: 2rem;
   width: 80vw;
   margin: auto;
@@ -19,6 +19,7 @@
 .mainContainer > section:nth-child(2) {
   max-width: 54rem;
 }
+
 
 /* ******************************** 
  media query */

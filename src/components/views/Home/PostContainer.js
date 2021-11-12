@@ -1,11 +1,30 @@
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import '../../../styles/components/PostContainer.css';
 import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
+import CommentBox from './CommentBox';
 
-export default function PostContainer({_id, media, title, user, createdAt}) {
+export default function PostContainer({ _id, media, title, user }) {
+  const { first_name, last_name, profile_img, createdAt } = user;
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [seeMore, setSeeMore] = useState(false);
+
   const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(user?.last_name)}`;
   
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/comments/posts/${_id}`)
+      .then(({ data }) => {
+        setComments(data?.comments);
+        // console.log(data);
+        // console.log(id);
+      })
+
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className='mainPostContainer'>
       <div className='post_header'>
@@ -25,7 +44,7 @@ export default function PostContainer({_id, media, title, user, createdAt}) {
         <img src='/images/vertical_menu.svg' alt='' />
       </div>
 
-      <div className='post_body'>
+      {/* <div className='post_body'>
         <div>
           {title}
         </div>
@@ -33,6 +52,16 @@ export default function PostContainer({_id, media, title, user, createdAt}) {
           src={media && media.length > 0 && media[0]}
           alt=''
         />
+      </div> */}
+
+      <div className="post_body">
+        <div>
+          <div>{seeMore ? title : title.substring(0, 100)}</div>
+          <button onClick={() => setSeeMore(!seeMore)}>
+            {seeMore ? "" : "...see more"}
+          </button>
+        </div>
+        <img src={media} alt="" />
       </div>
 
       <div className='social_counts'>
@@ -54,24 +83,25 @@ export default function PostContainer({_id, media, title, user, createdAt}) {
         <span>12 comments</span>
       </div>
 
-      <div className='post_footer'>
+      <div className="post_footer">
         <div>
-          <img src='/images/like.svg' alt='' />
+          <img src="/images/like.svg" alt="" />
           <p>Like</p>
         </div>
-        <div>
-          <img src='/images/comment.svg' alt='' />
+        <div onClick={() => setShowCommentBox(!showCommentBox)}>
+          <img src="/images/comment.svg" alt="" />
           <p>Comment</p>
         </div>
         <div>
-          <img src='/images/share.svg' alt='' />
+          <img src="/images/share.svg" alt="" />
           <p>Share</p>
         </div>
         <div>
-          <img src='/images/send.svg' alt='' />
+          <img src="/images/send.svg" alt="" />
           <p>Send</p>
         </div>
       </div>
+      {showCommentBox && <CommentBox />}
     </div>
   );
 }

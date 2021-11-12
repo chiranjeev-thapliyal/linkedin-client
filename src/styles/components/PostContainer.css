@@ -62,12 +62,19 @@
   word-break: break-word;
   color: rgba(0, 0, 0, 0.9);
 
+  display: flex;
+  justify-content: space-between;
 }
 
 .social_counts {
   /* border: 1px solid red; */
   display: flex;
   justify-content: start;
+}
+
+.post_body button {
+  border: none;
+  background-color: white;
 }
 
 .social_counts > span {
