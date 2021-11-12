@@ -3,16 +3,16 @@ import '../../../styles/components/PostModal.css';
 import styled from 'styled-components';
 import axios from 'axios';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
-import { toCapitalize } from '../../../utils/common.utils';
+import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 
 export default function PostModal({ showModal, setShowModal }) {
-  const { userDetails, handleNewPost } = useContext(AuthContext);
+  const { userDetails, token, handleNewPost } = useContext(AuthContext);
+
   const fullName =
     toCapitalize(userDetails?.first_name) +
     ' ' +
     toCapitalize(userDetails?.last_name);
   
-  const { token } = useContext(AuthContext);
   const [statusText, setStatusText] = useState('');
   const [sharedImage, setSharedImage] = useState('');
   const [previewSource, setPreviewSource] = useState('');
@@ -104,10 +104,10 @@ export default function PostModal({ showModal, setShowModal }) {
 
         <div className='userInfo'>
           <img
-            src='https://media-exp1.licdn.com/dms/image/C4E03AQFmeJIz0DYD9A/profile-displayphoto-shrink_200_200/0/1625409631133?e=1642032000&v=beta&t=VQwKOFqHxw1L3S_OR5gx1wK0MzCSICZcCGCgD05Msx0'
-            alt=''
+            src={checkProfileImage(userDetails.profile_img)}
+            alt={fullName}
           />
-          <p>Himanshu Bisht</p>
+          <p>{fullName}</p>
         </div>
 
         <div className='statusInput'>

@@ -55,7 +55,9 @@ export const AuthContextProvider = ({ children }) => {
       try {
         axios
           .get(`http://localhost:8080/users/email/${email}`)
-          .then(({ data }) => setUserDetails({ ...data.user }))
+          .then(({ data }) => {
+            setUserDetails({ ...data.user });
+          })
           .catch((e) => console.log('error while getting user'));
       } catch (e) {
         console.log('Please check email');
@@ -117,6 +119,7 @@ export const AuthContextProvider = ({ children }) => {
     newMessage,
     userDetails,
     feedPosts,
+    setUserDetails,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

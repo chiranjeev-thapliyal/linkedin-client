@@ -56,6 +56,7 @@ export default function Middle({ text }) {
           data.map((e) => (
             <div className='peopleCardSingle mt2rem '>
               <PeopleCard
+                user={e}
                 btn={isConnection(e._id) ? 'Message' : 'Connect'}
                 imgUrl={checkProfileImage(e.profile_img)}
                 name={

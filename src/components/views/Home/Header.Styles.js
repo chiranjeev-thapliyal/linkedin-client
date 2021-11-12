@@ -187,6 +187,7 @@ export const Signout = styled.div`
 
     & > div {
       justify-content: flex-start;
+      align-items: flex-start;
     }
 
     .btn-profile {

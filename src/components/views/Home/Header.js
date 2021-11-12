@@ -3,9 +3,11 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import '../../../styles/components/Header.css';
+import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 import * as S from './Header.Styles';
 
 export default function Header() {
+  const { userDetails } = useContext(AuthContext);
   const [signout, setSignOut] = useState(false);
 
   // const handleClick = () => {
@@ -13,8 +15,12 @@ export default function Header() {
   //   console.log('changed',signout);
   // }
 
-  const { handleLogout } = useContext(AuthContext);
+  const fullName =
+    toCapitalize(userDetails.first_name) +
+    ' ' +
+    toCapitalize(userDetails.last_name);
 
+  const { handleLogout } = useContext(AuthContext);
 
   return (
     <S.Container>
@@ -39,7 +45,7 @@ export default function Header() {
             <S.NavList>
               <NavLink to='/home'>
                 <img src='/images/nav-home.svg' alt='' />
-                <span>Home</span> 
+                <span>Home</span>
               </NavLink>
             </S.NavList>
             <S.NavList>
@@ -74,8 +80,8 @@ export default function Header() {
             >
               <div className='profileTab'>
                 <img
-                  src='https://media-exp1.licdn.com/dms/image/C4E03AQFmeJIz0DYD9A/profile-displayphoto-shrink_200_200/0/1625409631133?e=1642032000&v=beta&t=VQwKOFqHxw1L3S_OR5gx1wK0MzCSICZcCGCgD05Msx0'
-                  alt=''
+                  src={checkProfileImage(userDetails.profile_img)}
+                  alt={fullName}
                 />
                 <div>
                   <span>Me</span>
@@ -87,19 +93,21 @@ export default function Header() {
             {signout && (
               <S.Signout>
                 <div className='profileHeader'>
-                  <div> 
+                  <div>
                     <img
-                      src='https://media-exp1.licdn.com/dms/image/C4E03AQFmeJIz0DYD9A/profile-displayphoto-shrink_200_200/0/1625409631133?e=1642032000&v=beta&t=VQwKOFqHxw1L3S_OR5gx1wK0MzCSICZcCGCgD05Msx0'
-                      alt=''
-                    /> 
+                      src={checkProfileImage(userDetails.profile_img)}
+                      alt={fullName}
+                    />
                     <div>
                       <p>
-                        <b>Himanshu Bisht</b>
+                        <b>{fullName}</b>
                       </p>
-                      <p>User Summary</p>
+                      <p>{userDetails.description}</p>
                     </div>
                   </div>
-                  <Link className="btn-profile" to='/profile'>View Profile</Link>
+                  <Link className='btn-profile' to='/profile'>
+                    View Profile
+                  </Link>
                 </div>
 
                 <div className='accountSettings'>
@@ -119,7 +127,9 @@ export default function Header() {
                   <p>Job Posting Account </p>
                 </div>
 
-                <div onClick={handleLogout} className='signoutOption'>Sign Out</div>
+                <div onClick={handleLogout} className='signoutOption'>
+                  Sign Out
+                </div>
               </S.Signout>
             )}
 

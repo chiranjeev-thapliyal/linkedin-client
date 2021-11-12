@@ -30,7 +30,7 @@ export default function PostContainer({ _id, media, title, user }) {
       <div className='post_header'>
         <div className='post_headerLeft'>
           <img
-            src={checkProfileImage(user?.profile_img)}
+            src={checkProfileImage(user.profile_img)}
             alt=''
           />
 

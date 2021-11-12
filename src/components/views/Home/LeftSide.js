@@ -1,22 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import '../../../styles/components/leftSide.css';
 import Bookmark from '../../assets/svg/Bookmark';
-import { checkCoverImage, checkProfileImage, toCapitalize } from '../../../utils/common.utils';
+import {
+  checkCoverImage,
+  checkProfileImage,
+  toCapitalize,
+} from '../../../utils/common.utils';
 
 export default function LeftSide() {
   const { userDetails, userProfile } = useContext(AuthContext);
-  const fullName =
-    toCapitalize(userDetails?.first_name) +
-    ' ' +
-    toCapitalize(userDetails?.last_name);
+
+  let fullName = '';
+
+  if (userDetails && userDetails.first_name) {
+    fullName =
+      toCapitalize(userDetails?.first_name) +
+      ' ' +
+      toCapitalize(userDetails?.last_name);
+  }
 
   return (
     <div className='main_Left'>
       <div className='coverPic'>
         <img
-          src={checkCoverImage(userProfile?.cover_img)}
-          alt={fullName || 'Himanshu Bisht'}
+          src={checkCoverImage(userDetails?.cover_img)}
+          alt={fullName || ''}
         />
       </div>
       <div className='profilePic'>
@@ -26,8 +35,8 @@ export default function LeftSide() {
         />
       </div>
       <div className='userDetails'>
-        <div className='userName'> {fullName || 'Himanshu Bisht'}</div>
-        <div className='userSummary'>{userProfile?.description || ''}</div>
+        <div className='userName'> {fullName || ''}</div>
+        <div className='userSummary'>{userDetails.description || ''}</div>
       </div>
 
       <div className='connectionDetails'>
