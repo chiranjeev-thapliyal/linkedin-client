@@ -18,7 +18,6 @@ export const NetworksPage = () => {
         >
           <NetworksLeft />
           <NetworksRight />
-        </div>
       </div>
     );
 }
