@@ -1,20 +1,24 @@
 import MessengerEllips from '../../assets/svg/MessengerEllipsis';
 import MessengerMessage from '../../assets/svg/MessengerMessage';
 import MessengerUpArrow from '../../assets/svg/MessengerUpArrow';
+import { useContext } from 'react';
+import { AuthContext } from '../.../../../../Contexts/AuthContextProvider';
 
 const Header = ({ handleClick, user, open }) => {
+  const { userDetails } = useContext(AuthContext);
+
   return (
     <div className='header' onClick={handleClick}>
       <div className='messenger-left'>
         <div className='messenger-user-pic'>
           <img
             src={
-              user.profile_img ||
+              userDetails.profile_img ||
               'https://static-exp1.licdn.com/sc/h/1c5u578iilxfi4m4dvc4q810q'
             }
             alt={
-              user.first_name && user.last_name
-                ? `${user.first_name} ${user.last_name}`
+              userDetails.first_name && userDetails.last_name
+                ? `${userDetails.first_name} ${userDetails.last_name}`
                 : `user name`
             }
           />

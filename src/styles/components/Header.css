@@ -4,6 +4,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.accountSettings > p > b,
+.manageProfile > p > b {
+  font-size: 1.6rem;
+}
+
 .profileHeader > div {
   display: flex;
   justify-content: center;
@@ -41,7 +46,8 @@
 .accountSettings > p,
 .signoutOption {
   /* border: 1px solid red; */
-  height: 2.5rem;
+  /* height: 2.5rem; */
+  margin-top: 5px;
 }
 
 .profileTab {

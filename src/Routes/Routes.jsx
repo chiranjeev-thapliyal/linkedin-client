@@ -35,6 +35,9 @@ export const Routes = () => {
         <Route exact path='/register'>
           <Signup />
         </Route>
+        <PrivateRoute path="/profile/:userID">
+          <Profile />
+        </PrivateRoute>
         <PrivateRoute path='/' />
       </Switch>
       {isAuth && <Messenger />}
