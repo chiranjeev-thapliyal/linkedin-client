@@ -1,0 +1,477 @@
+body {
+  background-color: rgb(243, 242, 239);
+}
+img {
+  cursor: pointer;
+}
+/* ============= General ===================== */
+
+.mr1rem {
+  margin-right: 1rem;
+}
+.mr2rem {
+  margin-right: 2rem;
+}
+.mr2rem {
+  margin-right: 2rem;
+}
+.ml1rem {
+  margin-left: 1rem;
+}
+.ml2rem {
+  margin-left: 2rem;
+}
+.ml-2rem {
+  margin-left: 2rem;
+}
+.ml3rem {
+  margin-left: 3rem;
+}
+.mt05rem {
+  margin-top: 0.5rem;
+}
+.mt1rem {
+  margin-top: 1rem;
+}
+.mt2rem {
+  margin-top: 2rem;
+}
+.mt-15rem {
+  margin-top: -1.5rem;
+}
+.ml2rem {
+  margin-left: 2rem;
+}
+.mb05rem {
+  margin-bottom: 0.5rem;
+}
+.mb1rem {
+  margin-bottom: 1rem;
+}
+.mb2rem {
+  margin-bottom: 2rem;
+}
+.positionRelative {
+  position: relative;
+}
+.flex {
+  display: flex;
+}
+.flex-c {
+  display: flex;
+  justify-content: center;
+}
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-rowR {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-sl {
+  /* display: flex; */
+  /* background-color: #0a66c2; */
+}
+.shadowB {
+  /* background-color: rgba(155, 49, 49, 0.08); */
+  background-color: rgba(240, 240, 240, 1);
+}
+.shadowC {
+  color: rgb(235, 235, 235);
+  background-color: rgba(240, 240, 240, 1);
+}
+.divider {
+  height: 0.8px;
+  border: transparent;
+  border: red;
+}
+
+/* =============== Common ========================== */
+.editButtonMar {
+  /* background-color: red; */
+  margin-top: -3rem;
+  margin-bottom: 1rem;
+}
+
+.editButton img {
+  padding: 1rem;
+}
+.editButton img:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 50%;
+}
+.editButton h2 {
+  font-weight: 400;
+}
+.linkblue {
+  color: blue;
+  font-weight: 600;
+}
+.lightBlueC {
+  color: #0a66c2;
+  color: rgba(10, 153, 222);
+  color: rgb(11, 103, 194);
+}
+.lightBlueB {
+  background-color: rgb(11, 103, 194);
+}
+
+.more {
+  border-bottom: 5rem;
+  font-size: large;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+  font-weight: 600;
+}
+.more:hover {
+  /* background-color: red; */
+  /* background-color: rgb(235, 235, 235); */
+  cursor: pointer;
+}
+.weight200 {
+  font-weight: 200;
+}
+.weight300 {
+  font-weight: 300;
+}
+.weight400 {
+  font-weight: 400;
+}
+.weight600 {
+  font-weight: 600;
+}
+
+.img5 img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+.img-cp img {
+  cursor: pointer;
+}
+.cardText p {
+  color: gray;
+  font-weight: 400;
+  font-size: small;
+}
+.cardText h3 {
+  color: black;
+  font-weight: 500;
+  font-size: small;
+}
+.mxw33 {
+  min-width: 33%;
+  max-width: 33%;
+  /* min-width: 50%;
+  max-width: 50%; */
+}
+.pd1rem {
+  padding: 1rem;
+}
+.pd2rem {
+  padding: 2rem;
+}
+.black {
+  color: black;
+}
+.small {
+  font-size: small;
+}
+/* ================ Profile ========================== */
+.profileLeftDiv {
+  margin-left: 10vw;
+  width: 55vw;
+}
+@media only screen and (max-width: 700px) {
+  .profileLeftDiv {
+    margin: 0rem;
+    padding: 0%;
+    width: 55vw;
+    width: 100%;
+  }
+}
+.PMD {
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+.PAMD-Header {
+  margin-bottom: 2rem;
+}
+/*======== profileFrontCardMainDiv =========== */
+.profileFrontCardMainDiv {
+  /* background-color: aqua; */
+  background-color: rgb(255, 255, 255);
+  /* width: 55vw; */
+  /* margin-left: 10vw; */
+  border-radius: 1rem;
+  padding: 0rem;
+}
+.PFC-BackgroundImageBox {
+  /* z-index: -10; */
+  /* background-color: red; */
+}
+.PFC-BackgroundImageBox img {
+  width: 100%;
+  height: 100%;
+  /* z-index: -8; */
+}
+.PFC-FrontCardDownBox {
+  padding: 2rem;
+}
+
+.PFC-DB-ImageBox {
+  /* position: relative; */
+}
+.PFC-DB-ImageBox img {
+  background-color: white;
+  border-radius: 50%;
+  margin-top: -13.5rem;
+  width: 16rem;
+  height: 16rem;
+  z-index: 2;
+  border: 0.35rem solid white;
+}
+
+/* ==================== ProfileFrontCardContents ============ */
+.ProfileFrontCardContents {
+}
+.ProfileFrontCardContents h1 {
+  font-weight: 600;
+  font-size: x-large;
+  color: black;
+}
+.ProfileFrontCardContents h3 {
+  font-weight: 400;
+  color: black;
+}
+
+.PFCC-LeftPanel {
+  width: 70%;
+  height: fit-content;
+  /* background-color: red; */
+  /* float: left; */
+}
+
+.PFCC-RightPanel {
+  /* background-color: aqua; */
+  margin-right: 3.5rem;
+}
+.PFCC-RightPanel img {
+  width: 3rem;
+}
+
+.PFCC-RightPanel a {
+  margin-left: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.PFCC-BottomPanel span {
+  color: blue;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.PFCC-BottomPanelButtons button {
+  margin-right: 2rem;
+  margin-top: 1rem;
+  width: auto;
+  width: fit-content;
+  height: auto;
+  padding: 0.7rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 2rem;
+  border: 2px solid gray;
+  font-weight: 600;
+  background-color: transparent;
+  font-size: medium;
+}
+
+.PFCC-BottomPanelDiv {
+  background-color: rgb(233, 229, 223);
+  width: 97%;
+  min-height: 5rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.PFCC-BottomPanelDiv h4 {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/*  ====================== Profile About ================= */
+/* .profileAboutMainDiv {
+  background-color: rgb(255, 255, 255);
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+} */
+
+.aboutMePre {
+  /* width: 80%; */
+  height: fit-content;
+}
+
+.aboutSeeMore span {
+  cursor: pointer;
+  /* position: relative;
+  right: 10px; */
+}
+
+/* ================= Profile Activity =======================*/
+
+.PA-ActivityBox {
+  min-width: 50%;
+  max-width: 50%;
+  margin-top: 2rem;
+}
+@media only screen and (max-width: 700px) {
+  .PA-ActivityBox {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+.activityImages img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+.seeAllActivities {
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.ProfileActivityHeader h2 {
+  font-weight: 400;
+}
+/* ========================= ExperienceAndEducation ========== */
+
+.EAE-CardMainDiv {
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+  margin-left: -2rem;
+}
+
+/*================== SkillsAndEndorsements =================== */
+.SkillsAndEndorsementsCardBox h3 {
+  font-weight: 500;
+  color: black;
+}
+.quizButton {
+  background-color: transparent;
+  border: 2px solid rgb(11, 103, 194);
+  color: rgb(11, 103, 194);
+  /* width: 10rem; */
+  /* height: 2rem; */
+  border-radius: 5rem;
+  font-size: medium;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+.quizButton:hover {
+  background-color: rgb(226, 240, 254);
+  border: 2px solid blue;
+  cursor: pointer;
+}
+
+/* ============== Profile Interests=========== */
+
+.PICB-Items {
+  min-width: 50%;
+  max-width: 50%;
+}
+@media only screen and (max-width: 700px) {
+  .PICB-Items {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ===================== ProfileDashBoard ============ */
+.ProfileDashBoard {
+  background-color: rgb(220, 230, 241);
+  text-align: left;
+}
+.PD-MidBox {
+  background-color: white;
+  padding: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-radius: 1rem;
+}
+
+.PD-MidBox div {
+  /* max-width: 30%; */
+}
+.verticalLine {
+  background-color: rgba(240, 240, 240, 1);
+  width: 0.2rem;
+  height: 100%;
+  /* margin-top: -1rem; */
+  /* margin-bottom: -2rem; */
+  padding-bottom: 0rem;
+}
+.PD-TextBox {
+  width: 10rem;
+  min-width: 80%;
+  /* flex-basis: 0; */
+  margin-left: 1rem;
+  /* width: fit-content; */
+}
+.PD-BottomBox {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+/* =================== Profile Right Side ============ */
+.UPR {
+  background-color: rgb(255, 255, 255);
+  width: fit-content;
+  width: 23vw;
+  height: fit-content;
+  margin-left: 10%;
+  border-radius: 1rem;
+
+  padding: 2rem;
+  /* margin-top: 2rem; */
+}
+
+@media only screen and (max-width: 700px) {
+  .profileRightDiv {
+    display: none;
+  }
+}
+/* =================== Profile Right Side Middle============ */
+.peopleCardSingle img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: transparent;
+}
+
+.PeopleCard {
+  line-height: 2rem;
+}

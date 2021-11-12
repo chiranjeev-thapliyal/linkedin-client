@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../../styles/pages/_profile.scss';
 import ExperienceAndEducation from './ExperienceAndEducation'
 import ProfileAbout from './ProfileAbout'
 import ProfileAccomplishment from './ProfileAccomplishment'
@@ -8,15 +9,17 @@ import ProfileFooter from './ProfileFooter'
 import ProfileFrontCard from './ProfileFrontCard'
 import ProfileInterests from './ProfileInterests'
 import SkillsAndEndorsements from './SkillsAndEndorsements'
-import Middle from './userProfileRight/Middle'
+import Middle from './ProfileRight/Middle'
 
 export default function Profile() {
     return (
         <div className="profileMainDiv">
 
+
+
             {/* 
         
-           
+            profileFeatured
             profileEdit public profile & URL
             
             */}
