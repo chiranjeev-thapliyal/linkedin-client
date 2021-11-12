@@ -1,0 +1,26 @@
+.jobsMainDiv {
+    
+    background-color: rgb(243,242,239);
+    width: 100%;
+    .JobsSubDiv {
+        width: 70%;
+        padding-top: 3rem;
+        display: flex;
+        margin-left: 10%;
+        .jobsLeftDiv {
+            width: 22%;
+            height: 500px;
+            border-radius: 1rem;
+            border: 1px solid rgb(224,223,220);
+            background-color: rgb(255, 255, 255);
+        }
+        .jobsRightDiv {
+            width: 55%;
+            height: 500px;
+            margin-left: 3rem;
+            border-radius: 1rem;
+            border: 1px solid rgb(224,223,220);
+            background-color: rgb(255, 255, 255);
+        }
+    }
+}
