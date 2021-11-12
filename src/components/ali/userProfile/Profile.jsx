@@ -14,11 +14,9 @@ export default function Profile() {
     return (
         <div className="profileMainDiv">
 
-            {/* <h1>Testing Profile.jsx</h1> */}
-
             {/* 
         
-            profileFeatured
+           
             profileEdit public profile & URL
             
             */}
