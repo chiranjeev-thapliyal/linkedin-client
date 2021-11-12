@@ -10,11 +10,13 @@ export const NetworkSuggestionItem = ({
   name,
   desc,
   common,
+  handleId
 }) => {
   const [connect, setConnect] = useState("");
 
-  const handleConnect = (id) => {
+  const handleConnect = (e) => {
     setConnect(id);
+    handleId(id);
   };
 
   return (
