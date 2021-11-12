@@ -1,0 +1,51 @@
+.profileHeader,
+.accountSettings,
+.manageProfile {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profileHeader > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileHeader > div > div {
+  margin-left: 1rem;
+}
+
+.profileHeader img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.profileHeader button {
+  background-color: white;
+  width: 90%;
+  margin: 1rem auto;
+  border: 1px solid #0a66c2;
+  color: #0a66c2;
+  padding: 1rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  line-height: 1rem;
+}
+
+.manageProfile,
+.accountSettings,
+.signoutOption {
+  padding: 1rem;
+}
+
+.manageProfile > p,
+.accountSettings > p,
+.signoutOption {
+  /* border: 1px solid red; */
+  height: 2.5rem;
+}
+
+.profileTab {
+  /* border: 1px solid red; */
+  text-align: center;
+  margin: auto 2rem;
+}

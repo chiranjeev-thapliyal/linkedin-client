@@ -13,9 +13,13 @@
 @import './components/buttons';
 @import './components/chatbox';
 
+
 /* Layout Styling */
 @import './layout/navbar';
 
 
 /* Pages Styling */
+@import './pages/network';
+@import './pages/signup';
+@import './pages/jobs';
 @import './pages/messenger';

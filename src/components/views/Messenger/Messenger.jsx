@@ -1,34 +1,30 @@
 import Connection from './Connection';
 import { useContext, useEffect, useState } from 'react';
-import { socketContext } from '../../../context/SocketContextProvider';
 import axios from 'axios';
 import Header from './Header';
 import Search from './Search';
 import ChatBox from '../ChatBox/ChatBox';
-
-const instance = axios.create({
-  baseURL: 'http://localhost:8080',
-  timeout: 1000,
-  headers: {
-    Authorization:
-      'Bearer ' +
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4YWI5OTc0ZmJlMzFjMjM5MWU2ZGNiIiwiZW1haWwiOiJhQGEuY29tIn0sImlhdCI6MTYzNjU0NzU4NX0.MRXIYaALmDloIzPXNvw3fBhKMVrOfIiMs21FCC3kHmE',
-  },
-});
+import { AuthContext } from '../../../Contexts/AuthContextProvider';
 
 const Messenger = () => {
-  const [users, setUsers] = useState([]);
-  const [messages, setMessages] = useState({});
-  const { email } = useContext(socketContext);
+  const { messenger: users } = useContext(AuthContext);
+  // const [users, setUsers] = useState([]);
+  const [chats, setChats] = useState([]);
+  // const [messages, setMessages] = useState({});
   const [open, setOpen] = useState(false);
 
-  const [chats, setChats] = useState([]);
-
+  // Handler for messenger (open/close)
   const handleClick = () => {
     setOpen(!open);
   };
 
-  const handleChat = (friend, messages) => {
+  const handleRemoveChat = (id) => {
+    const newChats = chats?.filter(friend => friend._id !== id);
+    setChats([...newChats]);
+  };
+
+  // Handler for active chat boxes
+  const handleChat = (friend) => {
     for (const temp of chats) {
       if (temp.key === friend._id) return;
     }
@@ -36,22 +32,9 @@ const Messenger = () => {
     if (chats.length === 4) {
       setChats(chats.splice(1, 1));
     }
-    setChats([
-      ...chats,
-      <ChatBox key={friend?._id} friend={friend} messages={messages} />,
-    ]);
-  };
 
-  useEffect(() => {
-    instance
-      .get(`/conversation/connections`)
-      .then(({ data }) => {
-        console.log(data);
-        setUsers(data.users);
-        setMessages(data.messages);
-      })
-      .catch((e) => console.log(e));
-  }, [email]);
+    setChats([...chats, friend]);
+  };
 
   return (
     <div className='messenger-chat-wrapper'>
@@ -62,16 +45,18 @@ const Messenger = () => {
         <Search />
         <div className='list'>
           {users?.map((user) => (
-            <Connection
-              handleChat={handleChat}
-              key={user._id}
-              user={user}
-              messages={messages}
-            />
+            <Connection handleChat={handleChat} key={user._id} user={user} />
           ))}
         </div>
       </div>
-      {chats}
+      {chats?.map((friend) => (
+        <ChatBox
+          key={friend?._id}
+          handleRemoveChat={handleRemoveChat}
+          friendId={friend?._id}
+          friend={friend}
+        />
+      ))}
     </div>
   );
 };

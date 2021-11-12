@@ -7,36 +7,76 @@ import ChatGIF from '../../assets/svg/ChatGIF';
 import ChatEmoji from '../../assets/svg/ChatEmoji';
 import MessengerEllipsis from '../../assets/svg/MessengerEllipsis';
 import MessengerUpArrow from '../../assets/svg/MessengerUpArrow';
-import { useContext, useState } from 'react';
-import { socketContext } from '../../../context/SocketContextProvider';
+import { useContext, useEffect, useRef, useState } from 'react';
 import NewMessage from './NewMessage';
 import { toCapitalize } from '../../../utils/common.utils';
+import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import ScrollToBottom, {
+  useScrollToBottom,
+  useSticky,
+} from 'react-scroll-to-bottom';
 
-const ChatBox = ({ friend, messages }) => {
+const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
+  const scrollToBottom = useScrollToBottom();
+  const [sticky] = useSticky();
+  const { socket } = useContext(AuthContext);
+  const mainRef = useRef(null);
+
+  const {
+    email,
+    id,
+    messages: allMessages,
+    newMessage,
+  } = useContext(AuthContext);
+  const [messages, setMessages] = useState(allMessages[friendId]);
+
+  // useEffect(() => {
+  //   if (
+  //     (newMessage?.sender?._id === id &&
+  //       newMessage?.receiver?._id === friendId) ||
+  //     (newMessage?.sender?._id === friendId && newMessage?.receiver?._id === id)
+  //   ) {
+  //     console.log('new main ref: ', mainRef);
+  //     mainRef.current.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'end',
+  //       inline: 'nearest',
+  //     });
+  //   }
+  // }, [newMessage]);
+
+  useEffect(() => {
+    console.log('found new message: ');
+    if (
+      (newMessage?.sender?._id === id &&
+        newMessage?.receiver?._id === friendId) ||
+      (newMessage?.sender?._id === friendId && newMessage?.receiver?._id === id)
+    ) {
+      setMessages([...messages, newMessage]);
+    }
+  }, [newMessage]);
+
   const [open, setOpen] = useState(true);
+  const [text, setText] = useState('');
 
+  /* Handler for chat box (open/close) */
   const handleClick = () => {
     setOpen(!open);
   };
-
-  const { socket, email } = useContext(socketContext);
-
-  const [text, setText] = useState('');
 
   const handleInput = (e) => {
     const { value } = e.target;
     setText(value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    socket.emit('send-message', email, 'c@c.com', text);
+  const handleSubmit = (toID) => {
+    socket.emit('send-message', id, toID, text);
   };
 
   return (
     <div className={`chat-box ${open ? 'chat-box-open' : 'chat-box-close'}`}>
-      <header onClick={handleClick}>
-        <div className='presence-entity'>
+      <header>
+        <div className='presence-entity' onClick={handleClick}>
           <img
             src={
               friend?.profile_img ||
@@ -46,7 +86,7 @@ const ChatBox = ({ friend, messages }) => {
           />
           <div className='online-indicator'></div>
         </div>
-        <div className='header-wrapper'>
+        <div className='header-wrapper' onClick={handleClick}>
           <h4>{`${toCapitalize(friend?.first_name)} ${toCapitalize(
             friend?.last_name
           )}`}</h4>
@@ -62,16 +102,27 @@ const ChatBox = ({ friend, messages }) => {
           <button>
             <ChatResize />
           </button>
-          <button>
+          <button onClick={() => handleRemoveChat(friendId)}>
             <ChatClose />
           </button>
         </div>
       </header>
 
-      <main>
-        {messages?.map((msg) => (
-          <NewMessage msg={msg} />
-        ))}
+      <main ref={mainRef} id='main-chat-section'>
+        <ScrollToBottom className='scrollable'>
+          {messages?.map((msg) => (
+            <NewMessage msg={msg} />
+          ))}
+          {!sticky && (
+            <button
+              followButtonClassName='btn-latest-msg'
+              className='btn-latest-msg'
+              onClick={scrollToBottom}
+            >
+              <span>Latest Message</span>
+            </button>
+          )}
+        </ScrollToBottom>
         {/* <li className='message-list__event'>
           <div className='msg-listitem'>
             <div className='listitem__message-bubble'>
@@ -117,7 +168,10 @@ const ChatBox = ({ friend, messages }) => {
             <button
               id='chat-send'
               className='btn-disabled'
-              onClick={handleSubmit}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit(friendId);
+              }}
             >
               Send
             </button>

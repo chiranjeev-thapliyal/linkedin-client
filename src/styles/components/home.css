@@ -1,0 +1,31 @@
+.mainContainer {
+  /* border: 1px solid red; */
+  display: grid;
+  grid-template-columns: 1.1fr 3fr 1.3fr;
+  gap: 2rem;
+  width: 80vw;
+  margin: auto;
+  margin-top: 10vh;
+
+  max-width: 1128px;
+}
+
+.mainContainer > section {
+  /* border: 1px solid blue; */
+  text-align: center;
+  border-radius: 5px;
+}
+
+.mainContainer > section:nth-child(2) {
+  max-width: 54rem;
+}
+
+/* ******************************** 
+ media query */
+
+@media (max-width: 760px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
