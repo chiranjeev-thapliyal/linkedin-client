@@ -8,6 +8,7 @@ export default function PostContainer({ id, title, media, user }) {
   const { first_name, last_name, profile_img, createdAt } = user;
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comments, setComments] = useState([]);
+  const [seeMore, setSeeMore] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,7 +20,7 @@ export default function PostContainer({ id, title, media, user }) {
       })
 
       .catch((err) => console.log(err));
-  }, [id]);
+  }, []);
 
   return (
     <div className="mainPostContainer">
@@ -40,7 +41,12 @@ export default function PostContainer({ id, title, media, user }) {
       </div>
 
       <div className="post_body">
-        <div>{title}</div>
+        <div>
+          <div>{seeMore ? title : title.substring(0, 2)}</div>
+          <button onClick={() => setSeeMore(!seeMore)}>
+            {seeMore ? "" : "...see more"}
+          </button>
+        </div>
         <img src={media} alt="" />
       </div>
 
@@ -68,12 +74,8 @@ export default function PostContainer({ id, title, media, user }) {
           <img src="/images/like.svg" alt="" />
           <p>Like</p>
         </div>
-        <div>
-          <img
-            src="/images/comment.svg"
-            alt=""
-            onClick={() => setShowCommentBox(!showCommentBox)}
-          />
+        <div onClick={() => setShowCommentBox(!showCommentBox)}>
+          <img src="/images/comment.svg" alt="" />
           <p>Comment</p>
         </div>
         <div>
