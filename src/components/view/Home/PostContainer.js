@@ -69,7 +69,11 @@ export default function PostContainer({ id, title, media, user }) {
           <p>Like</p>
         </div>
         <div>
-          <img src="/images/comment.svg" alt="" />
+          <img
+            src="/images/comment.svg"
+            alt=""
+            onClick={() => setShowCommentBox(!showCommentBox)}
+          />
           <p>Comment</p>
         </div>
         <div>
