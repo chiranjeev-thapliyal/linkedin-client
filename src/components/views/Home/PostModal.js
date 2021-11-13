@@ -182,5 +182,6 @@ const PostButton = styled.button`
   font-weight: 500;
   &:hover {
     background: ${(props) => (props.disabled ? 'rgba(0,0,0,0.08)' : '#004182')};
-  }
+  };
+  //  display: ${(props) => (props.disabled ? 'none' : 'block')};
 `;

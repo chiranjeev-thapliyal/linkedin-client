@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../styles/components/CommentList.css";
-import ReplyBox from "./ReplyBox";
+import ReplyInputBox from "./ReplyInputBox";
 export default function CommentList() {
+
+  const [replyInputBox,showReplyInputBox]=useState(false)
+
   return (
     <div>
       <div className="commentList">
@@ -18,8 +21,18 @@ export default function CommentList() {
           <h6>This is the comment</h6>
         </div>
       </div>
-
-      <ReplyBox />
+      <div className="replyBtn commentHover">
+        <p>Like</p>
+        <p>|</p>
+        <p
+          onClick={() => {
+            showReplyInputBox(!replyInputBox);
+          }}
+        >
+          Reply
+        </p>
+      </div>
+      {replyInputBox && <ReplyInputBox />}
     </div>
   );
 }

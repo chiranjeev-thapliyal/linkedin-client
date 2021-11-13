@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../styles/components/_notification.scss'
 import FeedList from './FeedList'
+import { NetworkFooter } from '../Network/NetworkFooter';
 let data = [
   {
     name: "anuj sharma",
@@ -70,7 +71,7 @@ function Notification() {
 
           {/* right footer */}
 
-          <div className="right-footer-container">footer</div>
+          <div className="right-footer-container"><NetworkFooter/></div>
         </div>
       </div>
     );

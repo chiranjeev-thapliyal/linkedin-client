@@ -26,22 +26,19 @@ export default function PostContainer({ _id, media, title, user }) {
   }, []);
 
   return (
-    <div className='mainPostContainer'>
-      <div className='post_header'>
-        <div className='post_headerLeft'>
-          <img
-            src={checkProfileImage(user?.profile_img)}
-            alt=''
-          />
+    <div className="mainPostContainer">
+      <div className="post_header">
+        <div className="post_headerLeft">
+          <img src={checkProfileImage(user?.profile_img)} alt="" />
 
-          <div className='profile_details'>
-            <h3>{fullName || 'Himanshu Bisht'}</h3>
-            <p>{ user && user?.description || 'Learning Mern Stack' }</p>
+          <div className="profile_details">
+            <h3>{fullName || "Himanshu Bisht"}</h3>
+            <p>{(user && user?.description) || "Learning Mern Stack"}</p>
             <p>Date</p>
           </div>
         </div>
 
-        <img src='/images/vertical_menu.svg' alt='' />
+        <img src="/images/vertical_menu.svg" alt="" />
       </div>
 
       {/* <div className='post_body'>
@@ -56,27 +53,27 @@ export default function PostContainer({ _id, media, title, user }) {
 
       <div className="post_body">
         <div>
-          <div>{seeMore ? title : title.substring(0, 100)}</div>
+          <div>{seeMore ? title.substring(0, 50) : title}</div>
           <button onClick={() => setSeeMore(!seeMore)}>
-            {seeMore ? "" : "...see more"}
+            {seeMore ? (title.length<50?'...see more':''):''}
           </button>
         </div>
         <img src={media} alt="" />
       </div>
 
-      <div className='social_counts'>
+      <div className="social_counts">
         <img
-          src='https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt'
-          alt=''
+          src="https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt"
+          alt=""
         />
         <img
-          src='https://static-exp1.licdn.com/sc/h/cpho5fghnpme8epox8rdcds22'
-          alt=''
+          src="https://static-exp1.licdn.com/sc/h/cpho5fghnpme8epox8rdcds22"
+          alt=""
         />
 
         <img
-          src='https://static-exp1.licdn.com/sc/h/3wqhxqtk2l554o70ur3kessf1'
-          alt=''
+          src="https://static-exp1.licdn.com/sc/h/3wqhxqtk2l554o70ur3kessf1"
+          alt=""
         />
         <span>122</span>
         <span>.</span>
@@ -88,7 +85,10 @@ export default function PostContainer({ _id, media, title, user }) {
           <img src="/images/like.svg" alt="" />
           <p>Like</p>
         </div>
-        <div onClick={() => setShowCommentBox(!showCommentBox)}>
+        <div
+          className="commentHover"
+          onClick={() => setShowCommentBox(!showCommentBox)}
+        >
           <img src="/images/comment.svg" alt="" />
           <p>Comment</p>
         </div>

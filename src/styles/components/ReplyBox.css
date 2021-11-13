@@ -1,8 +1,15 @@
 .replyOuterContainer{
 	/* border: 1px solid red; */
-	padding-right: 1rem;
+	/* padding-right: 1rem;
 display: flex;
-flex-direction: row-reverse;
+flex-direction: row-reverse; */
+
+ width: 96%;
+  position: relative;
+  right: -2rem;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+
 }
 
 .replyList {

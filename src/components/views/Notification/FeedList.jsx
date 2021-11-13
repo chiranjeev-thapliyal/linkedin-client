@@ -7,9 +7,11 @@ function FeedList({ a }) {
     const [status, setStatus] = React.useState(false);
     console.log(a.image);
     const handleDots = (() => {
-        if (status === false) {
-            setStatus(true)
-        }
+        // if (status === false) {
+        //     setStatus(true)
+        // }
+
+      setStatus(!status);
     })
     
     return (
@@ -33,55 +35,56 @@ function FeedList({ a }) {
 
           <div className="icon-container">
             <div className="threedotsicon-inner-container">
-              <BsThreeDots
-                style={{ margin: "4px" }}
-                onClick={() => handleDots()}
-              />
+              <BsThreeDots style={{ margin: "4px" }} onClick={handleDots} />
+
+              {status ? (
+                <div
+                  className="list-container"
+                  onClick={() => setStatus(false)}
+                >
+                  <div className="delete-list-container">
+                    <button>
+                      {" "}
+                      <RiDeleteBin5Line style={{ margin: "5px" }} />
+                      &nbsp; &nbsp;{" "}
+                      <span
+                        style={{
+                          marginTop: "3px",
+                          fontSize: "1rem",
+                          fontWeight: "600",
+                        }}
+                      >
+                        Delete
+                      </span>
+                    </button>
+                  </div>
+                  <div className="turnoff-list-container">
+                    {" "}
+                    <button>
+                      {" "}
+                      <FiBellOff
+                        style={{
+                          margin: "5px",
+                        }}
+                      />
+                      &nbsp; &nbsp;{" "}
+                      <span
+                        style={{
+                          marginTop: "3px",
+                          fontSize: "1rem",
+                          fontWeight: "600",
+                        }}
+                      >
+                        Turn off
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
-          {status ? (
-            <div className="list-container" onClick={() => setStatus(false)}>
-              <div className="delete-list-container">
-                <button>
-                  {" "}
-                  <RiDeleteBin5Line style={{ margin: "5px" }} />
-                  &nbsp; &nbsp;{" "}
-                  <span
-                    style={{
-                      marginTop: "3px",
-                      fontSize: "1rem",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Delete 
-                  </span>
-                </button>
-              </div>
-              <div className="turnoff-list-container">
-                {" "}
-                <button>
-                  {" "}
-                  <FiBellOff
-                    style={{
-                      margin: "5px",
-                    }}
-                  />
-                  &nbsp; &nbsp;{" "}
-                  <span
-                    style={{
-                      marginTop: "3px",
-                      fontSize: "1rem",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Turn off
-                  </span>
-                </button>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
         </div>
       </div>
     );
