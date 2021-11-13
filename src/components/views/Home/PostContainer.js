@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import '../../../styles/components/PostContainer.css';
 import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 import CommentBox from './CommentBox';
+import ReactionPopUp from "./ReactionPopUp";
 
 export default function PostContainer({ _id, media, title, user }) {
   const { first_name, last_name, profile_img, createdAt } = user;
@@ -55,7 +56,7 @@ export default function PostContainer({ _id, media, title, user }) {
         <div>
           <div>{seeMore ? title.substring(0, 50) : title}</div>
           <button onClick={() => setSeeMore(!seeMore)}>
-            {seeMore ? (title.length<50?'...see more':''):''}
+            {seeMore ? (title.length < 50 ? "...see more" : "") : ""}
           </button>
         </div>
         <img src={media} alt="" />
@@ -85,6 +86,7 @@ export default function PostContainer({ _id, media, title, user }) {
           <img src="/images/like.svg" alt="" />
           <p>Like</p>
         </div>
+        <ReactionPopUp />
         <div
           className="commentHover"
           onClick={() => setShowCommentBox(!showCommentBox)}
