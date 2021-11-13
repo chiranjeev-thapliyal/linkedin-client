@@ -91,9 +91,9 @@ export default function PostContainer({ _id, media, title, user }) {
 
       <div className="post_footer">
         {reactionBox && <ReactionPopUp handleReaction={handleReaction} />}
-        <div>
+        <div onMouseOver={handleReaction}>
           <img src="/images/like.svg" alt="" />
-          <p onMouseOver={handleReaction}>Like</p>
+          <p>Like</p>
         </div>
         <div
           className="commentHover"
