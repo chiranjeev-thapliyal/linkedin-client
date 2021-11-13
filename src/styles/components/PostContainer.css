@@ -88,6 +88,11 @@
 .social_counts > span {
   margin-left: 0.5rem;
 }
+
+.social_counts > span:nth-child(2) {
+  margin-bottom: 1rem;
+}
+
 .social_counts > img {
   margin-left: 0.2rem;
 }
@@ -98,6 +103,7 @@
   justify-content: space-around;
   align-items: center;
   /* border: 1px solid red; */
+  position: relative;
 }
 
 .post_footer > div {
@@ -109,6 +115,11 @@
   cursor: pointer;
 }
 
+.post_footer > div > img {
+  max-width: 24px;
+  max-height: 24px;
+}
+
 .post_footer > div > p {
   margin-left: 0.6rem;
 }
@@ -116,6 +127,6 @@
 .post_footer > div:hover {
   background-color: #e6e4e3;
 }
-.commentHover:hover{
+.commentHover:hover {
   cursor: pointer;
 }

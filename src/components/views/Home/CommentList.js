@@ -1,27 +1,34 @@
-import React, { useState } from "react";
-import "../../../styles/components/CommentList.css";
-import ReplyInputBox from "./ReplyInputBox";
-export default function CommentList() {
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import '../../../styles/components/CommentList.css';
+import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
+import ReplyInputBox from './ReplyInputBox';
 
-  const [replyInputBox,showReplyInputBox]=useState(false)
+export default function CommentList({ comment, post, comments, likes }) {
+  const { userDetails } = useContext(AuthContext);
+  const [allComments, setAllComments] = useState([comment, ...comments]);
+  console.log('got all comments: ', allComments);
 
-  return (
+  const [replyInputBox, showReplyInputBox] = useState(false);
+
+  return allComments.map(({ _id, title, post, user: commentUser }) => (
     <div>
-      <div className="commentList">
-        <img
-          src="https://media-exp1.licdn.com/dms/image/C4E03AQFmeJIz0DYD9A/profile-displayphoto-shrink_100_100/0/1625409631133?e=1642032000&v=beta&t=wOB4B-QXl_1BwC3YCjmXPx-jiOtkveea1AuTyzbktmc"
-          alt=""
-        />
+      <div className='commentList'>
+        <img src={checkProfileImage(userDetails.profile_img)} alt='' />
 
-        <div className="commentContent">
+        <div className='commentContent'>
           <p>
-            <b>Himanshu Bisht</b>
+            <b>
+              {toCapitalize(commentUser.first_name) +
+                ' ' +
+                toCapitalize(commentUser.last_name)}
+            </b>
           </p>
-          <p>User Summary</p>
-          <h6>This is the comment</h6>
+          <p>{commentUser.description}</p>
+          <h6>{title}</h6>
         </div>
       </div>
-      <div className="replyBtn commentHover">
+      <div className='replyBtn commentHover'>
         <p>Like</p>
         <p>|</p>
         <p
@@ -34,5 +41,5 @@ export default function CommentList() {
       </div>
       {replyInputBox && <ReplyInputBox />}
     </div>
-  );
+  ));
 }

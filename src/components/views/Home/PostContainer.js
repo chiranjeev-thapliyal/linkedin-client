@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import '../../../styles/components/PostContainer.css';
 import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 import CommentBox from './CommentBox';
+import ReactionPopUp from './ReactionPopUp';
 
 export default function PostContainer({ _id, media, title, user }) {
   const { first_name, last_name, profile_img, createdAt } = user;
@@ -12,9 +13,18 @@ export default function PostContainer({ _id, media, title, user }) {
   const [seeMore, setSeeMore] = useState(false);
   const [likes, setLikes] = useState([]);
   const [post, setPost] = useState({});
-  const [canLike, setCanLike] = useState(false);
 
   const [likesTotal, setLikesTotal] = useState(0);
+
+  const [reactionBox, showReactionBox] = useState(false);
+  const [whichLike, setWhichLike] = useState('');
+
+  const handleReaction = (txt) => {
+    showReactionBox(!reactionBox);
+    console.log('inside handleReaction', txt);
+    setWhichLike(txt);
+    handleLike(txt.toLowerCase());
+  };
 
   const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(
     user?.last_name
@@ -24,46 +34,28 @@ export default function PostContainer({ _id, media, title, user }) {
     axios
       .get(`http://localhost:8080/posts/post/all/${_id}`)
       .then(({ data }) => {
+        console.log('all likes', data);
         setComments(data.comments);
         setLikes(data.likes);
         setPost(data.post);
         setLikesTotal(data.likes.length);
-        const personCanLike = data.likes.filter((item) => {
-          return item.user._id === user._id;
-        });
-        if (personCanLike && personCanLike.length > 0) {
-          setCanLike(false);
-        } else {
-          setCanLike(true);
-        }
       })
       .catch((err) => console.log(err, 'cant get posts likes'));
   }, []);
 
   const handleLike = (text) => {
-    if (canLike) {
-      axios
-        .post(`http://localhost:8080/likes`, {
-          form: text,
-          post: _id,
-          user: user._id,
-        })
-        .then(({ data }) => {
-          console.log('after like: ', data);
-          setLikesTotal(likesTotal + 1);
-          setCanLike(false);
-        })
-        .catch((e) => console.error('check like create route'));
-    } else {
-      axios
-        .patch(`http://localhost:8080/likes`, {
-          form: text,
-          user: user._id,
-          post: _id,
-        })
-        .then(({ data }) => console.log(data))
-        .catch((e) => console.error(e));
-    }
+    axios
+      .post(`http://localhost:8080/likes`, {
+        form: text,
+        post: _id,
+        user: user._id,
+      })
+      .then(({ data }) => {
+        console.log('after like: ', data);
+        setLikesTotal(likesTotal + 1);
+        setLikes([...likes, data.likes]);
+      })
+      .catch((e) => console.error('check like create route'));
   };
 
   return (
@@ -94,12 +86,10 @@ export default function PostContainer({ _id, media, title, user }) {
 
       <div className='post_body'>
         <div>
-          <div>{seeMore ? title : title.substring(0, 100)}</div>
-          {title.length >= 100 && (
-            <button onClick={() => setSeeMore(!seeMore)}>
-              {seeMore ? '' : '...see more'}
-            </button>
-          )}
+          <div>{seeMore ? title.substring(0, 50) : title}</div>
+          <button onClick={() => setSeeMore(!seeMore)}>
+            {seeMore ? (title.length < 50 ? '...see more' : '') : ''}
+          </button>
         </div>
         <img src={media} alt='' />
       </div>
@@ -130,11 +120,41 @@ export default function PostContainer({ _id, media, title, user }) {
       </div>
 
       <div className='post_footer'>
-        <div onClick={() => handleLike('like')}>
-          <img src='/images/like.svg' alt='' />
-          <p>Like</p>
+        {reactionBox && <ReactionPopUp handleReaction={handleReaction} />}
+        <div onClick={() => handleReaction('')}>
+          {whichLike === '' && <img src='/images/like.svg' alt='' />}
+          {whichLike === '' && <p>Like</p>}
+
+          {whichLike === 'Like' && (
+            <img
+              src='https://static-exp1.licdn.com/sc/h/f4ly07ldn7194ciimghrumv3l'
+              alt=''
+            />
+          )}
+          {whichLike === 'Like' && <p>Like</p>}
+
+          {whichLike === 'Celebrate' && (
+            <img
+              src='https://static-exp1.licdn.com/sc/h/3c4dl0u9dy2zjlon6tf5jxlqo'
+              alt=''
+            />
+          )}
+          {whichLike === 'Celebrate' && <p>Celebrate</p>}
+
+          {whichLike === 'Support' && <img src='/images/like.svg' alt='' />}
+          {whichLike === 'Support' && <p>Like</p>}
+
+          {whichLike === 'Love' && <img src='/images/like.svg' alt='' />}
+          {whichLike === 'Love' && <p>Like</p>}
+
+          {whichLike === 'Curious' && <img src='/images/like.svg' alt='' />}
+          {whichLike === 'Curious' && <p>Like</p>}
         </div>
-        <div onClick={() => setShowCommentBox(!showCommentBox)}>
+
+        <div
+          className='commentHover'
+          onClick={() => setShowCommentBox(!showCommentBox)}
+        >
           <img src='/images/comment.svg' alt='' />
           <p>Comment</p>
         </div>
@@ -147,7 +167,9 @@ export default function PostContainer({ _id, media, title, user }) {
           <p>Send</p>
         </div>
       </div>
-      {showCommentBox && <CommentBox />}
+      {showCommentBox && (
+        <CommentBox post={post} comments={comments} likes={likes} />
+      )}
     </div>
   );
 }
