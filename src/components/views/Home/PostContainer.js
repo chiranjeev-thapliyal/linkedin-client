@@ -12,6 +12,7 @@ export default function PostContainer({ _id, media, title, user }) {
   const [seeMore, setSeeMore] = useState(false);
   const [likes, setLikes] = useState([]);
   const [post, setPost] = useState({});
+  const [canLike, setCanLike] = useState(false);
 
   const [likesTotal, setLikesTotal] = useState(0);
 
@@ -27,23 +28,42 @@ export default function PostContainer({ _id, media, title, user }) {
         setLikes(data.likes);
         setPost(data.post);
         setLikesTotal(data.likes.length);
+        const personCanLike = data.likes.filter((item) => {
+          return item.user._id === user._id;
+        });
+        if (personCanLike && personCanLike.length > 0) {
+          setCanLike(false);
+        } else {
+          setCanLike(true);
+        }
       })
-
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err, 'cant get posts likes'));
   }, []);
 
   const handleLike = (text) => {
-    axios
-      .post(`http://localhost:8080/likes`, {
-        form: text,
-        post: _id,
-        user: user._id,
-      })
-      .then(({ data }) => {
-        console.log('after like: ', data);
-        setLikesTotal(likesTotal + 1);
-      })
-      .catch((e) => console.error('check like create route'));
+    if (canLike) {
+      axios
+        .post(`http://localhost:8080/likes`, {
+          form: text,
+          post: _id,
+          user: user._id,
+        })
+        .then(({ data }) => {
+          console.log('after like: ', data);
+          setLikesTotal(likesTotal + 1);
+          setCanLike(false);
+        })
+        .catch((e) => console.error('check like create route'));
+    } else {
+      axios
+        .patch(`http://localhost:8080/likes`, {
+          form: text,
+          user: user._id,
+          post: _id,
+        })
+        .then(({ data }) => console.log(data))
+        .catch((e) => console.error(e));
+    }
   };
 
   return (

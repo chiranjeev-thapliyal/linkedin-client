@@ -65,7 +65,7 @@ export const NetworkInvitations = ({ userDetails }) => {
           const notInConnections = data.user.connections.filter((connect) => {
             return item._id === connect._id
           })
-          return (notInConnections && notInConnections.length > 0);
+          return (notInConnections && notInConnections.length === 0);
         })
         setPendingRequests([...filterReq]);
         // const filteredArray = data.user.pendingSent.filter((item) => {

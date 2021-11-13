@@ -116,3 +116,6 @@
 .post_footer > div:hover {
   background-color: #e6e4e3;
 }
+.commentHover:hover{
+  cursor: pointer;
+}

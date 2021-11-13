@@ -1,0 +1,51 @@
+.replyInputWrapper {
+  padding-right: 1rem;
+  /* display: flex;
+  flex-direction: row-reversec; */
+  /* border: 1px solid red; */
+  width: 96%;
+  position: relative;
+  right: -2rem;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+}
+
+.replyInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.replyInput > img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2.5rem;
+}
+
+.replyInput input {
+  border: none;
+}
+
+.replyInput input:focus {
+  outline: none;
+}
+
+.replyInput > div {
+  width: 90%;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 2rem;
+  margin-left: 1rem;
+}
+.replyInput > div > div {
+  width: 12%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -28,3 +28,16 @@
     font-size: 1.2rem;
     color: black;
 }
+
+.replyBtn{
+  /* border: 1px solid red; */
+   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 7rem;
+    
+}
+
+.replyBtn>p{
+  padding: 0 0.5rem;
+}

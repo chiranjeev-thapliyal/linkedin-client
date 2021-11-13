@@ -1,0 +1,40 @@
+.reactionContainer {
+  display: flex;
+  position: absolute;
+ background-color: white !important;
+ border: none;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ position: absolute;
+ left: 0;
+ bottom: 5rem;
+}
+
+.innerReactionContainer  {
+  display: flex;
+  flex-direction: column;
+ background-color: white;
+ position: relative;
+}
+ .type {
+  display: none;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  /* padding: 0 0.5rem; */
+  height: 4rem;
+  width: fit-content;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+ .innerReactionContainer:hover >.type {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -6rem;
+  transition: 200ms;
+}
+ .innerReactionContainer:hover >img {
+transform: scale(1.1);
+transform: translateY(-1rem);
+transition: 200ms;
+}

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../styles/components/CommentBox.css";
 import CommentList from "./CommentList";
 
 export default function CommentBox() {
+
+  const [enterComment, setEnterComment] = useState(false);
+
+  const handleKey = (e) => {
+    if(e.key === 'Enter') setEnterComment(true);
+  }
+
   return (
     <div>
       <div className="commentInput">
@@ -12,15 +19,19 @@ export default function CommentBox() {
         />
 
         <div>
-          <input type="text" placeholder="Add a comment..." autoFocus={true} />
+          <input
+            onKeyPress={handleKey}
+            type="text"
+            placeholder="Add a comment..."
+            autoFocus={true}
+          />
           <div>
             <img src="/images/emojie.svg" alt="" />
             <img src="/images/modal_img.svg" alt="" />
           </div>
         </div>
       </div>
-
-      <CommentList />
+      {enterComment && <CommentList />}
     </div>
   );
 }
