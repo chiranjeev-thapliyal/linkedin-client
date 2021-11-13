@@ -10,6 +10,7 @@ import { Signup } from '../components/views/Signup/Signup';
 import { AuthContext } from '../Contexts/AuthContextProvider';
 import PrivateRoute from './PrivateRoute';
 import Messenger from '../components/views/Messenger/Messenger';
+import { JobsPage } from '../components/views/Jobs/Jobs/JobsPage';
 
 export const Routes = () => {
   const { isAuth } = useContext(AuthContext);
@@ -32,8 +33,11 @@ export const Routes = () => {
         <Route exact path='/register'>
           <Signup />
         </Route>
-        <PrivateRoute path="/profile/:userID">
+        <PrivateRoute path='/profile/:userID'>
           <Profile />
+        </PrivateRoute>
+        <PrivateRoute exact path='/jobs'>
+          <JobsPage />
         </PrivateRoute>
         <PrivateRoute path='/' />
       </Switch>

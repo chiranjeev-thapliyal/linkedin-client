@@ -21,9 +21,9 @@ export default function Header() {
     <S.Container>
       <S.Content>
         <S.Logo>
-          <a href='/home'>
+          <Link to='/home'>
             <img src='/images/home-logo.svg' alt='' />
-          </a>
+          </Link>
         </S.Logo>
 
         <S.Search>
@@ -38,34 +38,34 @@ export default function Header() {
         <S.Nav>
           <S.Wrapper>
             <S.NavList>
-              <a href='/home'>
+              <Link to='/home'>
                 <img src='/images/nav-home.svg' alt='' />
                 <span>Home</span>
-              </a>
+              </Link>
             </S.NavList>
             <S.NavList>
-              <a href='/my-networks'>
+              <Link to='/my-networks'>
                 <img src='/images/nav-network.svg' alt='' />
                 <span>My Network</span>
-              </a>
+              </Link>
             </S.NavList>
             <S.NavList>
-              <a href='/jobs'>
+              <Link to='/jobs'>
                 <img src='/images/nav-jobs.svg' alt='' />
                 <span>Jobs</span>
-              </a>
+              </Link>
             </S.NavList>
             <S.NavList>
-              <a href='/messaging'>
+              <Link to='/messaging'>
                 <img src='/images/nav-messaging.svg' alt='' />
                 <span>Messaging</span>
-              </a>
+              </Link>
             </S.NavList>
             <S.NavList>
-              <a href='/notification'>
+              <Link to='/notification'>
                 <img src='/images/nav-notifications.svg' alt='' />
                 <span>Notifications</span>
-              </a>
+              </Link>
             </S.NavList>
 
             <S.User
@@ -100,12 +100,11 @@ export default function Header() {
                       <p>{userDetails.description}</p>
                     </div>
                   </div>
-                  <a
-                    href={`/profile/${userDetails._id}`}
+                  <Link to={`/profile/${userDetails._id}`}
                     className='btn-profile'
                   >
                     View Profile
-                  </a>
+                  </Link>
                 </div>
 
                 <div className='accountSettings'>

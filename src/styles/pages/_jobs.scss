@@ -1,0 +1,196 @@
+.jobsMainDiv {
+  // height: 100vh;
+  background-color: rgb(243, 242, 239);
+  width: 100%;
+  margin-top: 18rem;
+  .JobsSubDiv {
+    width: 80%;
+    padding-top: 3rem;
+    display: flex;
+    margin-left: 10%;
+    .jobsLeftMain {
+      width: 25%;
+      .jobsLeftDiv {
+        width: 100%;
+        height: fit-content;
+        border-radius: 1rem;
+        border: 1px solid rgb(224, 223, 220);
+        background-color: rgb(255, 255, 255);
+        .jobNavItems {
+          display: flex;
+          padding: 1.4rem;
+          p {
+            margin-left: 1.5rem;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .jobsNavBottom {
+        width: 100%;
+        display: flex;
+        padding: 2rem;
+        margin-top: 1.2rem;
+        height: fit-content;
+        border-radius: 1rem;
+        border: 1px solid rgb(224, 223, 220);
+        background-color: rgb(255, 255, 255);
+        &:hover {
+          cursor: pointer;
+        }
+        p {
+          font-style: 1.4rem;
+          line-height: 2rem;
+          font-weight: 600;
+          font-style: normal;
+          margin-left: 0.5rem;
+          margin-top: 0.2rem;
+          color: rgb(10, 102, 194);
+        }
+      }
+    }
+    .jobsRightMainDiv {
+      width: 55%;
+      height: fit-content;
+      .jobsRightTop {
+        width: 100%;
+        height: fit-content;
+        padding: 2rem;
+        margin-left: 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgb(224, 223, 220);
+        background-color: rgb(255, 255, 255);
+        div {
+          display: flex;
+          justify-content: space-between;
+          p:first-child {
+            color: rgba(0, 0, 0, 0.9);
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 2.4rem;
+          }
+        }
+
+        p:nth-child(2) {
+          color: rgba(0, 0, 0, 0.9);
+          margin-top: 0.5rem;
+          font-size: 1.4rem;
+          font-weight: 600;
+          line-height: 2rem;
+        }
+      }
+      .jobsRightDiv {
+        width: 100%;
+        height: fit-content;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgb(224, 223, 220);
+        background-color: rgb(255, 255, 255);
+        .jobsDivMain {
+          padding: 2rem;
+          &:hover {
+            cursor: pointer;
+          }
+
+          .jobsDivHeading {
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            font-weight: 600;
+            font-style: normal;
+            color: rgba(0, 0, 0, 0.9);
+          }
+          .jobsDivHeading + p {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            font-weight: 400;
+            font-style: normal;
+            padding-bottom: 1rem;
+            color: rgba(0, 0, 0, 0.6);
+          }
+          .jobsContentDiv {
+            width: 98%;
+            display: flex;
+            // margin-left: 0.1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgb(224, 223, 220);
+            .jobsDetails {
+              display: flex;
+              img {
+                width: 60px;
+                height: 60px;
+              }
+            }
+            .jobDetailsDiv {
+              width: 25rem;
+              // border: 1px solid red;
+              margin-left: 2rem;
+              .jobTitle {
+                font-size: 1.6rem;
+                font-weight: 600;
+                line-height: 2.4rem;
+                font-style: normal;
+                margin-top: -0.5rem;
+                color: rgb(10, 102, 194);
+                &:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+              .jobTitle ~ p {
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 2rem;
+                font-style: normal;
+                color: rgba(0, 0, 0, 0.6);
+              }
+              .recruiting {
+                margin-top: 0.5rem;
+                display: flex;
+                p {
+                  margin-left: 0.2rem;
+                }
+              }
+              .jobDetailsDiv > p:last-child {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+                font-weight: 400;
+                font-style: normal;
+                color: rgba(0, 0, 0, 0.6);
+              }
+            }
+            .jobsHideIcons {
+              margin-left: 7rem;
+              .eyeball {
+                visibility: hidden;
+                // display: none;
+                // opacity: 0;
+              }
+              .showIcon {
+                visibility: visible;
+              }
+              // .hideIcon img {
+              //     visibility: hidden;
+              // }
+              .impIcon {
+                padding-left: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .jobsRightImage {
+      margin-top: -0.5rem;
+      margin-left: 1.5rem;
+    }
+  }
+}
