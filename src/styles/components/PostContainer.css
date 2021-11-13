@@ -90,6 +90,7 @@
   justify-content: space-around;
   align-items: center;
   /* border: 1px solid red; */
+  position: relative;
 }
 
 .post_footer > div {

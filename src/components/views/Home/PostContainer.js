@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Contexts/AuthContextProvider';
-import '../../../styles/components/PostContainer.css';
-import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
-import CommentBox from './CommentBox';
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Contexts/AuthContextProvider";
+import "../../../styles/components/PostContainer.css";
+import { checkProfileImage, toCapitalize } from "../../../utils/common.utils";
+import CommentBox from "./CommentBox";
 import ReactionPopUp from "./ReactionPopUp";
 
 export default function PostContainer({ _id, media, title, user }) {
@@ -12,8 +12,10 @@ export default function PostContainer({ _id, media, title, user }) {
   const [comments, setComments] = useState([]);
   const [seeMore, setSeeMore] = useState(false);
 
-  const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(user?.last_name)}`;
-  
+  const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(
+    user?.last_name
+  )}`;
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/comments/posts/${_id}`)
@@ -25,6 +27,12 @@ export default function PostContainer({ _id, media, title, user }) {
 
       .catch((err) => console.log(err));
   }, []);
+
+  const [reactionBox, showReactionBox] = useState(false);
+
+  const handleReaction = () => {
+    showReactionBox(!reactionBox)
+  }
 
   return (
     <div className="mainPostContainer">
@@ -82,11 +90,11 @@ export default function PostContainer({ _id, media, title, user }) {
       </div>
 
       <div className="post_footer">
+        {reactionBox && <ReactionPopUp handleReaction={handleReaction} />}
         <div>
           <img src="/images/like.svg" alt="" />
-          <p>Like</p>
+          <p onMouseOver={handleReaction}>Like</p>
         </div>
-        <ReactionPopUp />
         <div
           className="commentHover"
           onClick={() => setShowCommentBox(!showCommentBox)}
