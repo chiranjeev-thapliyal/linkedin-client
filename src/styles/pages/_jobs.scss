@@ -3,11 +3,13 @@
   background-color: rgb(243, 242, 239);
   width: 100%;
   margin-top: 18rem;
+  max-width: 1128px;
+  margin: 8vh auto 0;
   .JobsSubDiv {
-    width: 80%;
+    // width: 80%;
     padding-top: 3rem;
     display: flex;
-    margin-left: 10%;
+    // margin-left: 10%;
     .jobsLeftMain {
       width: 25%;
       .jobsLeftDiv {
@@ -121,6 +123,10 @@
             padding-top: 1rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgb(224, 223, 220);
+
+            display: flex;
+            justify-content: space-between;
+
             .jobsDetails {
               display: flex;
               img {
@@ -169,6 +175,7 @@
             .jobsHideIcons {
               margin-left: 7rem;
               .eyeball {
+                display: none;
                 visibility: hidden;
                 // display: none;
                 // opacity: 0;
