@@ -26,11 +26,17 @@ export const NetworkSuggestion1 = ({ heading1, userDetails }) => {
               return connect._id === item._id;
             })
 
-            let newFilterArray = userDetails.pendingReceived.filter((connect) => {
+            let receivedFilterArray = userDetails.pendingReceived.filter((connect) => {
               return connect._id === item._id;
             })
 
-            if (filteredArray.length === 0 && newFilterArray.length === 0) return item;
+            let sentFilterArray = userDetails.pendingSent.filter((connect) => {
+              return connect._id === item._id;
+            })
+
+            console.log("recommends: ", userDetails, data, filteredArray, receivedFilterArray, sentFilterArray)
+
+            if (item._id !== userDetails._id && filteredArray.length === 0 && sentFilterArray.length === 0 && receivedFilterArray.length === 0) return item;
           });
           setRecommendations([...filteredRecommendation]);
         })

@@ -33,17 +33,20 @@ export const NetworkSuggestionItem = ({
 
   const handleConnect = (id, text) => {
     if (text === 'Pending') return;
-    axios.patch(
-      'http://localhost:8080/users/send-request',
-      {
-        id: _id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    axios
+      .post(
+        'http://localhost:8080/users/send-request',
+        {
+          id: _id,
         },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(({ data }) => console.log('after sending: ', data))
+      .catch((e) => console.error('Unsuccessful sent req'));
     setConnect(id);
   };
 

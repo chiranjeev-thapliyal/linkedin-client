@@ -10,33 +10,51 @@ export default function PostContainer({ _id, media, title, user }) {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comments, setComments] = useState([]);
   const [seeMore, setSeeMore] = useState(false);
+  const [likes, setLikes] = useState([]);
+  const [post, setPost] = useState({});
 
-  const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(user?.last_name)}`;
-  
+  const [likesTotal, setLikesTotal] = useState(0);
+
+  const fullName = `${toCapitalize(user?.first_name)} ${toCapitalize(
+    user?.last_name
+  )}`;
+
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/comments/posts/${_id}`)
+      .get(`http://localhost:8080/posts/post/all/${_id}`)
       .then(({ data }) => {
-        setComments(data?.comments);
-        // console.log(data);
-        // console.log(id);
+        setComments(data.comments);
+        setLikes(data.likes);
+        setPost(data.post);
+        setLikesTotal(data.likes.length);
       })
 
       .catch((err) => console.log(err));
   }, []);
 
+  const handleLike = (text) => {
+    axios
+      .post(`http://localhost:8080/likes`, {
+        form: text,
+        post: _id,
+        user: user._id,
+      })
+      .then(({ data }) => {
+        console.log('after like: ', data);
+        setLikesTotal(likesTotal + 1);
+      })
+      .catch((e) => console.error('check like create route'));
+  };
+
   return (
     <div className='mainPostContainer'>
       <div className='post_header'>
         <div className='post_headerLeft'>
-          <img
-            src={checkProfileImage(user.profile_img)}
-            alt=''
-          />
+          <img src={checkProfileImage(user.profile_img)} alt='' />
 
           <div className='profile_details'>
             <h3>{fullName || 'Himanshu Bisht'}</h3>
-            <p>{ user && user?.description || 'Learning Mern Stack' }</p>
+            <p>{(user && user.description) || 'Learning Mern Stack'}</p>
             <p>Date</p>
           </div>
         </div>
@@ -54,50 +72,58 @@ export default function PostContainer({ _id, media, title, user }) {
         />
       </div> */}
 
-      <div className="post_body">
+      <div className='post_body'>
         <div>
           <div>{seeMore ? title : title.substring(0, 100)}</div>
-          <button onClick={() => setSeeMore(!seeMore)}>
-            {seeMore ? "" : "...see more"}
-          </button>
+          {title.length >= 100 && (
+            <button onClick={() => setSeeMore(!seeMore)}>
+              {seeMore ? '' : '...see more'}
+            </button>
+          )}
         </div>
-        <img src={media} alt="" />
+        <img src={media} alt='' />
       </div>
 
       <div className='social_counts'>
-        <img
-          src='https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt'
-          alt=''
-        />
-        <img
-          src='https://static-exp1.licdn.com/sc/h/cpho5fghnpme8epox8rdcds22'
-          alt=''
-        />
+        {likes.filter(({ form: type }) => type === 'like').length > 0 && (
+          <img
+            src='https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt'
+            alt=''
+          />
+        )}
+        {likes.filter(({ form: type }) => type === 'celebrate').length > 0 && (
+          <img
+            src='https://static-exp1.licdn.com/sc/h/cpho5fghnpme8epox8rdcds22'
+            alt=''
+          />
+        )}
+        {likes.filter(({ form: type }) => type === 'celebrate').length > 0 && (
+          <img
+            src='https://static-exp1.licdn.com/sc/h/3wqhxqtk2l554o70ur3kessf1'
+            alt=''
+          />
+        )}
 
-        <img
-          src='https://static-exp1.licdn.com/sc/h/3wqhxqtk2l554o70ur3kessf1'
-          alt=''
-        />
-        <span>122</span>
-        <span>.</span>
-        <span>12 comments</span>
+        {likesTotal > 0 && <span>{likesTotal}</span>}
+        {likesTotal > 0 && comments.length > 0 && <span>.</span>}
+        {comments.length > 0 && <span>{comments.length} comments</span>}
       </div>
 
-      <div className="post_footer">
-        <div>
-          <img src="/images/like.svg" alt="" />
+      <div className='post_footer'>
+        <div onClick={() => handleLike('like')}>
+          <img src='/images/like.svg' alt='' />
           <p>Like</p>
         </div>
         <div onClick={() => setShowCommentBox(!showCommentBox)}>
-          <img src="/images/comment.svg" alt="" />
+          <img src='/images/comment.svg' alt='' />
           <p>Comment</p>
         </div>
         <div>
-          <img src="/images/share.svg" alt="" />
+          <img src='/images/share.svg' alt='' />
           <p>Share</p>
         </div>
         <div>
-          <img src="/images/send.svg" alt="" />
+          <img src='/images/send.svg' alt='' />
           <p>Send</p>
         </div>
       </div>

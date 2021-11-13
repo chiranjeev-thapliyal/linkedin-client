@@ -106,6 +106,7 @@
   align-items: center;
   padding: 1.5rem 2rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .post_footer > div > p {

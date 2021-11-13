@@ -52,29 +52,66 @@ import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 import InviteItem from './InviteItem';
 
 export const NetworkInvitations = ({ userDetails }) => {
+  const { email } = useContext(AuthContext);
   const [invitesMore, setInvitesMore] = useState(false);
+  const [pendingRequests, setPendingRequests] = useState([]);
 
-  return userDetails && userDetails.pendingReceived ? (
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/users/email/${email}`)
+      .then(({ data }) => {
+        console.log('new data found', data);
+        const filterReq = data.user.pendingReceived.filter((item) => {
+          const notInConnections = data.user.connections.filter((connect) => {
+            return item._id === connect._id
+          })
+          return (notInConnections && notInConnections.length > 0);
+        })
+        setPendingRequests([...filterReq]);
+        // const filteredArray = data.user.pendingSent.filter((item) => {
+        //   const filterConnectArray = data.user.connections.filter(
+        //     (connect) => {
+        //       return connect._id === item._id;
+        //     }
+        //   );
+        //   if (filterConnectArray.length === 0) return item;
+        // //   setPendingRequests([...filteredArray]);
+        // });
+      })
+      .catch((e) => console.error('Error while getting pending requests'));
+  }, []);
+
+  return userDetails && pendingRequests ? (
     <div className='NetworkIvitationsMainDiv'>
       <div className='NetworkIvitationsDiv1'>
-        <p>Invitations</p>
-        <p>See all {userDetails.pendingReceived.length}</p>
+        <p>
+          {pendingRequests.length === 0
+            ? 'No pending invitations'
+            : 'Invitations'}
+        </p>
+        <p>
+          {pendingRequests.length === 0
+            ? 'Manage'
+            : `See all ${pendingRequests.length}`}
+        </p>
       </div>
-      {userDetails.pendingReceived.map((connection, indx) => {
+      {pendingRequests.map((connection, indx) => {
         return indx < 3 ? (
           <InviteItem connection={connection} />
         ) : invitesMore ? (
           <InviteItem connection={connection} />
         ) : null;
       })}
-      <button
-        onClick={() => {
-          setInvitesMore(!invitesMore);
-        }}
-        className='invitesMore'
-      >
-        {invitesMore ? 'Show Fewer' : 'Show More'}
-      </button>
+      {pendingRequests.length > 3 && (
+        <button
+          onClick={() => {
+            setInvitesMore(!invitesMore);
+          }}
+          className='invitesMore'
+        >
+          {invitesMore ? 'Show Fewer' : 'Show More'}
+        </button>
+      )}
     </div>
   ) : (
     ''

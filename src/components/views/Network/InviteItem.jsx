@@ -6,6 +6,7 @@ import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 import NetworksLink from '../../assets/svg/NetworksLink';
 
 const InviteItem = ({ connection }) => {
+  console.log('connection inside: ', connection);
   const { token } = useContext(AuthContext);
   const [isAccepted, setIsAccepted] = useState(false);
 
