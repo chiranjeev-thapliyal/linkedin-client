@@ -10,7 +10,7 @@ import NetworkMore from "../../assets/svg/NetworkMore";
 import NetworkNews from "../../assets/svg/NetworkNews";
 import NetworkHashtag from "../../assets/svg/NetworkHashtag";
 
-export const NetworksNavItem = ({ title, count, children }) => {
+export const NetworksNavItem = ({ title, count, children, userDetails }) => {
   const [show, setShow] = useState(false);
 
   const handleToggle = () => {
@@ -25,7 +25,7 @@ export const NetworksNavItem = ({ title, count, children }) => {
           <NetworkConnections className="NavIcon" />
           <p className="netNavItemTitle">Connections</p>
           <p className="netNavItemCount" style={{ marginLeft: "150px" }}>
-            358
+            {userDetails.connections.length}
           </p>
         </div>
         <div className={show ? "hide" : "unhide"}>
@@ -33,49 +33,49 @@ export const NetworksNavItem = ({ title, count, children }) => {
             <NetworkContacts className="NavIcon" />
             <p className="netNavItemTitle">Contacts</p>
             <p className="netNavItemCount" style={{ marginLeft: "185px" }}>
-              73
+              {userDetails?.contacts?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkFollow className="NavIcon" />
             <p className="netNavItemTitle">People I Follow</p>
             <p className="netNavItemCount" style={{ marginLeft: "142px" }}>
-              11
+            {userDetails?.follow?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkGroup className="NavIcon" />
             <p className="netNavItemTitle">Group</p>
             <p className="netNavItemCount" style={{ marginLeft: "210px" }}>
-              4
+            {userDetails?.group?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkEvent className="NavIcon" />
             <p className="netNavItemTitle">Event</p>
             <p className="netNavItemCount" style={{ marginLeft: "218px" }}>
-              1
+            {userDetails?.events?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkPages className="NavIcon" />
             <p className="netNavItemTitle">Pages</p>
             <p className="netNavItemCount" style={{ marginLeft: "215px" }}>
-              9
+            {userDetails?.pages?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkNews className="NavIcon" />
             <p className="netNavItemTitle">Newsletters</p>
             <p className="netNavItemCount" style={{ marginLeft: "173px" }}>
-              0
+            {userDetails?.newsletters?.length || ''}
             </p>
           </div>
           <div className="NavItemsFlex">
             <NetworkHashtag className="NavIcon" />
             <p className="netNavItemTitle">Hashtag</p>
             <p className="netNavItemCount" style={{ marginLeft: "200px" }}>
-              1
+            {userDetails?.hashtags?.length || ''}
             </p>
           </div>
         </div>

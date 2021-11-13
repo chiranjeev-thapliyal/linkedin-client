@@ -1,13 +1,23 @@
-import { NetworksLeft } from "./NetworksLeft"
-import { NetworksRight } from "./NetworksRight"
-
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import { NetworksLeft } from './NetworksLeft';
+import { NetworksRight } from './NetworksRight';
 
 export const NetworksPage = () => {
+  const { userDetails } = useContext(AuthContext);
+  // const [userDetails, setUserDetails] = useState({});
 
-    return (
-        <div style={{display: "flex", paddingLeft: "7%", paddingTop: "10vh", backgroundColor: "rgb(243,242,239)"}}>
-            <NetworksLeft />
-            <NetworksRight />
-        </div>
-    )
-}
+  // useEffect(() => {
+    // axios.get(`http://localhost:8080/profile`)
+  // }, [])
+
+  return userDetails && userDetails._id ? (
+    <div className='NetworkWrapper'>
+      <NetworksLeft userDetails={userDetails} />
+      <NetworksRight userDetails={userDetails} />
+    </div>
+  ) : (
+    ''
+  );
+};

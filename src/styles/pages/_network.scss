@@ -1,468 +1,535 @@
+.NetworkWrapper {
+  max-width: 1128px;
+  display: flex;
+  //   padding-left: 7%;
+  padding-top: 10vh;
+  background-color: rgb(243, 242, 239);
+  margin: 0 auto;
+}
 .networksLeftMain {
-    width: 26%;
-    height: fit-content;
-    border-radius: 10px;
-    border: 1px solid rgb(224,223,220);
-    background-color: rgb(255,255,255);
-    /* border: 1px solid red; */
-    .networkNavDiv1 {
-        border-bottom: 1px solid rgb(238,243,248);
-        .manageNetwork {
-            padding: 15px;
-            margin-left: 5px;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            color: rgba(0, 0, 0, 0.9);
-        }
-        .NetworksNavItemsDiv {
-            width: 100%;
-            // height: 4rem;
-            // display: flex;
-            
-            justify-content: space-between;
-            
-            .NavItemsFlex {
-                height: 4rem;
-                display: flex;
-                place-items:center;
-                padding-left: 1rem;
-                // justify-content: space-between;
-                &:hover {
-                    background-color: rgb(238,243,248);
-                    cursor: pointer;
-                }
-                // .NavIcon {
-                //     padding-left: 10px;
-                // }
-                .netNavItemTitle {
-                    margin-left: 20px;
-                    padding-left: 0px;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 24px;
-                    color:rgba(0, 0, 0, 0.6);
-                    &:hover {
-                        text-decoration: underline; 
-                        
-                    }
-                }
-                .netNavItemCount {
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 24px;
-                    color:rgba(0, 0, 0, 0.6);
-                }
-            }  
-        }
-        .NetNavBtn1 {
-            width: 12rem;
-            height: 4rem;
-            border: none;
-            border-radius: 5px;
-            margin: 0.5rem;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 20px;
-            color:rgba(0, 0, 0, 0.82);
-            background-color: rgb(255,255,255);
-            &:hover {
-                background-color: rgb(238,243,248);
-                font-weight: 600;
-                cursor: pointer;
-            }
-        }
-    }
-    .netNavDiv2 {
-        .NetNavImgDiv {
-            border-bottom: 1px solid rgb(238,243,248);
-            img {
-                margin: 1rem;
-            }
-        }
-        .netNavPersonalDiv {
-            text-align: center;
-            border-bottom: 1px solid rgb(238,243,248);
-            .personalHead {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 24px;
-                padding: 1rem;
-                color: rgba(0, 0, 0, 0.9);
-            }
-            .personalHead + p {
-                font-size: 12px;
-                font-weight: 400;
-                line-height: 16px;
-                padding-left: 1rem;
-                padding-right: 1rem;
-                color: rgba(0, 0, 0, 0.6);
+  //   width: 26%;
+  height: fit-content;
+  border-radius: 10px;
+  border: 1px solid rgb(224, 223, 220);
+  background-color: rgb(255, 255, 255);
+  /* border: 1px solid red; */
 
-                span {
-                    color: #0a66c2;
-                    text-decoration: underline;
-                    &:hover {
-                        color: #723ada;
-                        
-                    }
-                }
-            }
-            input {
-                height: 3rem;
-                width: 93%;
-                margin: 2rem;
-                margin-left: 3.5%;
-                border-radius: 0.5rem;
-                border: 1px solid rgba(34, 34, 34, 0.9);
-                &:hover {
-                    border: 2px solid rgba(0, 0, 0, 0.6);
-                }
-                &:focus {
-                    outline: none;
-                }
-            }
-            .netNavContinue {
-                height: 3.5rem;
-                width: 35%;
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 600;
-                font-style: normal;
-                border-radius: 2rem;
-                margin-bottom: 1.2rem;
-                color: rgb(10,102,194);
-                background-color: rgb(255,255,255);
-                border: 1px solid rgb(10,102,194);
-                &:hover {
-                    cursor: pointer;
-                    border: 2px solid rgb(10,102,194);
-                    background-color: rgb(224, 242, 245);
-                }
-            }
-            .netNavContinue + p {
-                padding-bottom: 1rem;
-                &:hover {
-                    cursor: pointer;
-                    text-decoration: underline;
-                    color: rgb(10,102,194);
-                }
-            }
-            
-        }
+  width: min-content;
+  margin-right: 2rem;
+
+  .networkNavDiv1 {
+    border-bottom: 1px solid rgb(238, 243, 248);
+    .manageNetwork {
+      padding: 15px;
+      margin-left: 5px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: rgba(0, 0, 0, 0.9);
     }
-    
+    .NetworksNavItemsDiv {
+      width: 100%;
+      // height: 4rem;
+      // display: flex;
+
+      justify-content: space-between;
+
+      .NavItemsFlex {
+        height: 4rem;
+        display: flex;
+        place-items: center;
+        padding-left: 1rem;
+        // justify-content: space-between;
+        &:hover {
+          background-color: rgb(238, 243, 248);
+          cursor: pointer;
+        }
+        // .NavIcon {
+        //     padding-left: 10px;
+        // }
+        .netNavItemTitle {
+          margin-left: 20px;
+          padding-left: 0px;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          color: rgba(0, 0, 0, 0.6);
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .netNavItemCount {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+    .NetNavBtn1 {
+      width: 12rem;
+      height: 4rem;
+      border: none;
+      border-radius: 5px;
+      margin: 0.5rem;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      color: rgba(0, 0, 0, 0.82);
+      background-color: rgb(255, 255, 255);
+      &:hover {
+        background-color: rgb(238, 243, 248);
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+  .netNavDiv2 {
+    .NetNavImgDiv {
+      border-bottom: 1px solid rgb(238, 243, 248);
+      img {
+        margin: 1rem;
+      }
+    }
+    .netNavPersonalDiv {
+      text-align: center;
+      border-bottom: 1px solid rgb(238, 243, 248);
+      .personalHead {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 1rem;
+        color: rgba(0, 0, 0, 0.9);
+      }
+      .personalHead + p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: rgba(0, 0, 0, 0.6);
+
+        span {
+          color: #0a66c2;
+          text-decoration: underline;
+          &:hover {
+            color: #723ada;
+          }
+        }
+      }
+      input {
+        height: 3rem;
+        width: 93%;
+        margin: 2rem;
+        margin-left: 3.5%;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(34, 34, 34, 0.9);
+        &:hover {
+          border: 2px solid rgba(0, 0, 0, 0.6);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .netNavContinue {
+        height: 3.5rem;
+        width: 35%;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        font-style: normal;
+        border-radius: 2rem;
+        margin-bottom: 1.2rem;
+        color: rgb(10, 102, 194);
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(10, 102, 194);
+        &:hover {
+          cursor: pointer;
+          border: 2px solid rgb(10, 102, 194);
+          background-color: rgb(224, 242, 245);
+        }
+      }
+      .netNavContinue + p {
+        padding-bottom: 1rem;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+          color: rgb(10, 102, 194);
+        }
+      }
+    }
+  }
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 .unhide {
-    display: block;
+  display: block;
 }
 
 .networkRightDiv {
-    width: 63%;
-    margin-left: 2%;
-    .networksRightMain {
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid rgb(224,223,220);
-        background-color: rgb(255,255,255);
-        /* border: 1px solid blue; */
-    }
-    .networkRightSecond {
-        margin-top: 3vh;
-    }
+  //   width: 63%;
+  //   margin-left: 2%;
+
+  .networksRightMain {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 223, 220);
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid blue; */
+  }
+  .networkRightSecond {
+    margin-top: 3vh;
+  }
 }
 
-
 .NetworkIvitationsMainDiv {
-    .NetworkIvitationsDiv1 {
-        height: 8vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid rgb(224,223,220);
+  .NetworkIvitationsDiv1 {
+    // height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(224, 223, 220);
 
-        p:first-child {
-            font-size: 16px;
-            padding: 20px;
-            color: $color-black;
-        }
-        p:last-child {
-            font-size: 16px;
-            font-weight: 600;
-            margin-right: 20px;
-            color: rgba(0, 0, 0, 0.71);
-            &:hover {
-                cursor: pointer;
-            }
-        }
+    p:first-child {
+      font-size: 16px;
+      padding: 20px;
+      color: $color-black;
     }
-    .inviteItems {
-        display: flex;
-        align-items: center;
-        padding: 2vh;
-        border-bottom: 1px solid rgb(224,223,220);
-        &:hover {
-            cursor: pointer;
-        }
-        img {
-            margin-left: 1%;
-            height: 72px;
-            width: 72px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .inviteDetails {
-            margin-left: 1.5%;
-            p:first-child {
-                font-style: normal;
-                font-weight: 600;
-                font-size: 16px;
-                line-height: 24px;
-                color:rgba(0, 0, 0, 0.9);
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-            p:nth-child(2) {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 20px;
-                color: rgba(0, 0, 0, 0.6);
-            }
-            p:last-child {
-                margin-left: 5px;
-                font-style: normal;
-                font-weight: 400px;
-                font-size: 12px;
-                line-height: 16px;
-                color: rgba(0, 0, 0, 0.6);
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-        .btnDiv {
-            margin-left: 25%;
-            .ignoreBtn {
-                border: none;
-                height: 30px;
-                width: 70px;
-                border-radius: 3px;
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 600;
-                font-style: normal;
-                margin-right: 8px;
-                background-color: rgb(255,255,255);
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgb(235,235,235);
-                }
-            }
-            .acceptBtn {
-                height: 30px;
-                width: 90px;
-                border-radius: 15px;
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 600;
-                font-style: normal;
-                color: rgb(10,102,194);
-                background-color: rgb(255,255,255);
-                border: 1px solid rgb(10,102,194);
-                &:hover {
-                    cursor: pointer;
-                    border: 2px solid rgb(10,102,194);
-                    background-color: rgb(224, 242, 245);
-                }
-            }
-        }
-        
+    p:last-child {
+      font-size: 16px;
+      font-weight: 600;
+      margin-right: 20px;
+      color: rgba(0, 0, 0, 0.71);
+      &:hover {
+        cursor: pointer;
+      }
     }
-    .invitesMore {
-        width: 100%;
-        height: 40px;
-        padding: 10px;
-        border: none;
+  }
+  .inviteItems {
+    display: flex;
+    align-items: center;
+    padding: 2vh;
+    border-bottom: 1px solid rgb(224, 223, 220);
+    &:hover {
+      cursor: pointer;
+    }
+    img {
+      margin-left: 1%;
+      height: 72px;
+      width: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .inviteDetails {
+      margin-left: 1.5%;
+      p:first-child {
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
-        line-height: 20px;
-        color: rgb(10,102,194);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background-color: rgb(255,255,255); 
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.9);
         &:hover {
-            background-color: rgb(224, 242, 245);
+          text-decoration: underline;
         }
+      }
+      p:nth-child(2) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      p:last-child {
+        margin-left: 5px;
+        font-style: normal;
+        font-weight: 400px;
+        font-size: 12px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.6);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
+    .btnDiv {
+      margin-left: 25%;
+      display: flex;
+
+      .ignoreBtn {
+        border: none;
+        height: 30px;
+        width: 70px;
+        border-radius: 3px;
+        font-size: 1.6rem;
+        line-height: 20px;
+        font-weight: 600;
+        font-style: normal;
+        margin-right: 8px;
+        background-color: rgb(255, 255, 255);
+        color: #00000099;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(235, 235, 235);
+        }
+      }
+      .acceptBtn {
+        max-height: 30px;
+        width: 90px;
+        border-radius: 15px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        font-style: normal;
+        color: rgb(10, 102, 194);
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(10, 102, 194);
+        box-shadow: 0 0 0 1px #0a66c2;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+          //   border: 2px solid rgb(10, 102, 194);
+          background-color: rgb(224, 242, 245);
+          background-color: #70b5f933;
+          box-shadow: 0 0 0 2px #0a66c2;
+          color: #0a66c2;
+        }
+      }
+    }
+  }
+  .invitesMore {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(10, 102, 194);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    &:hover {
+      background-color: rgb(224, 242, 245);
+    }
+  }
 }
 
 .NetSuggestion1 {
+  //   padding: 1rem;
+  margin: 1.6rem 0 3.2rem;
 
-    .NetSugHeading1 {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        p:first-child {
-            font-size: 16px;
-            color: $color-black;
-        }
-        p:last-child {
-            font-size: 16px;
-            font-weight: 600;
-            color: rgba(0, 0, 0, 0.71);
-            &:hover {
-                cursor: pointer;
-            }
-        }
+  .NetSugHeading1 {
+    display: flex;
+    justify-content: space-between;
+    // padding: 20px;
+
+    min-height: 3.2rem;
+    display: flex;
+    align-items: center;
+    margin: 0px 10 0px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1.6rem 0 1.6rem;
+
+    p:first-child {
+      font-size: 16px;
+      color: $color-black;
     }
-    .NetSuggestionsAll {
+    p:last-child {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.71);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .NetSuggestionsAll {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-content: flex-start;
+    margin: 1.2rem 1rem;
+
+    .NetworkSuggestions {
+      width: 50.5%;
+      max-width: 17.2rem;
+      &:not(:nth-child(4n)) {
+        margin-right: 2rem;
+      }
+
+      .NetSugItemDiv {
+        position: relative;
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        .NetworkSuggestions {
-            width: 23.5%;
-            .NetSugItemDiv {
-                position: relative;
-                width: 100%;
-                height: 280px;
-                border-radius: 12px;
-                text-align: center;
-                margin-bottom: 3rem;
-                border: 1px solid rgb(224,223,220);
-                &:hover {
-                    box-shadow: 0px 0px 5px rgb(134, 134, 134);
-                }
-                .NetCrossDiv {
-                    margin-top: 5px;
-                    width: 3rem;
-                    height: 3rem;
-                    z-index: 1;
-                    // left: 50px;
-                    right: 5px;
-                    padding-top: 7px;
-                    color: white;
-                    position: absolute;
-                    border-radius: 50%;
-                    background-color: rgba(95, 93, 93, 0.7);
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-                .bgDiv {
-                    
-                    width: 100%;
-                    height: 26%;
-                    border-top-left-radius: 12px;
-                    border-top-right-radius: 12px;
-                }
-                .avatarImg {
-                    width: 58%;
-                    height: 17vh;
-                    border-radius: 50%;
-                    // margin-left: 22.5%;
-                    margin-top: -6.5rem;
-                    object-fit: cover;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-                .NetSuggestionName {
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 16px;
-                    line-height: 24px;
-                    color:rgba(0, 0, 0, 0.9);
-                    &:hover {
-                        text-decoration: underline;
-                        cursor: pointer;
-                    }
-                }
-                .NetSugesstionDesc {
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 20px;
-                    color: rgba(0, 0, 0, 0.6); 
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-                .NetcommonDiv {
-                    display: flex;
-                    margin-top: 18px;
-                    margin-left: 15%; 
-                    margin-bottom: 0px;
-                    &:hover {
-                        text-decoration: underline;
-                        cursor: pointer;
-                    }
-                    p {
-                        font-size: 12px;
-                        font-weight: 400;
-                        line-height: 16px;
-                        margin-left: 5px;
-                        color:rgba(0, 0, 0, 0.6);
-                        
-                    }
-                }
-                .NetSuggestConnect {
-                    margin-top: 1.5rem;
-                    height: 3.5rem;
-                    width: 80%;
-                    font-size: 16px;
-                    line-height: 20px;
-                    font-weight: 600;
-                    font-style: normal;
-                    border-radius: 2rem;
-                    margin-bottom: 1.2rem;
-                    color: rgb(10,102,194);
-                    background-color: rgb(255,255,255);
-                    border: 1px solid rgb(10,102,194);
-                    &:hover {
-                        cursor: pointer;
-                        border: 2px solid rgb(10,102,194);
-                        background-color: rgb(224, 242, 245);
-                    }
-                }
-                
-            }
+        height: 280px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 3rem;
+        border: 1px solid rgb(224, 223, 220);
+
+        max-width: 18rem;
+        border-radius: 0.8rem;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
+            rgba(0, 0, 0, 0.3) 0px 4px 4px 0px;
         }
-        
-    }
-}
-.netNavFooter {
-    
-    div {
-        width: 25rem;
-        // border: 1px solid black;
-        display: flex;
-        flex-wrap: wrap;  
-        margin-top: 3rem;
-        margin-left: 3rem;
-        // letter-spacing: 0.1cm;
-        justify-content: center;
-        p {
-            font-size: 13px;
+        .NetCrossDiv {
+          margin-top: 5px;
+          width: 3rem;
+          height: 3rem;
+          z-index: 1;
+          // left: 50px;
+          right: 5px;
+          padding-top: 7px;
+          color: white;
+          position: absolute;
+          border-radius: 50%;
+          background-color: rgba(95, 93, 93, 0.7);
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .bgDiv {
+          width: 100%;
+          height: 26%;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+          max-height: 6.2rem;
+
+          border-top-left-radius: 0.8rem;
+          border-top-right-radius: 0.8rem;
+        }
+        .avatarImg {
+          width: 58%;
+          height: 17vh;
+          border-radius: 50%;
+          // margin-left: 22.5%;
+          margin-top: -6.5rem;
+          object-fit: cover;
+          width: 10.4rem;
+          height: 10.4rem;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .NetSuggestionName {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.6rem;
+          line-height: 24px;
+          color: rgba(0, 0, 0, 0.9);
+          line-height: 2.4rem !important;
+          //   max-height: 2.4rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-all;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+        .NetSugesstionDesc {
+          font-size: 1.4rem;
+          font-weight: 400;
+          line-height: 20px;
+          color: rgba(0, 0, 0, 0.6);
+          line-height: 2rem !important;
+          max-height: 4rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .NetcommonDiv {
+          display: flex;
+          margin-top: 18px;
+          margin-left: 15%;
+          margin-bottom: 0px;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          p {
+            font-size: 12px;
             font-weight: 400;
-            line-height: 0.5cm;
-            margin-left: 1.3rem;
-            text-align: center;
-            &:hover {
-                cursor: pointer;
-                text-decoration: underline;
-                color: rgb(10,102,194);
-            }
+            line-height: 16px;
+            margin-left: 5px;
+            color: rgba(0, 0, 0, 0.6);
+          }
         }
-        .netNavPrivate {
-            margin-top: 0px;
-            padding-top: 0.5rem;
-            padding-bottom: 0.3rem;
+        .NetSuggestConnect {
+          margin-top: 1.5rem;
+          //   height: 3.5rem;
+          width: 80%;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 600;
+          font-style: normal;
+          border-radius: 2rem;
+          outline: none;
+          margin-bottom: 1.2rem;
+          color: rgb(10, 102, 194);
+          background-color: rgb(255, 255, 255);
+          //   border: 1px solid rgb(10, 102, 194);
+          box-shadow: 0 0 0 1px #0a66c2;
+          border: none;
+          font-size: 1.6rem;
+          min-height: 3.2rem;
+          padding: 0.6rem 1.2rem;
+          line-height: 2rem;
+
+          &:hover {
+            cursor: pointer;
+            // border: 2px solid rgb(10, 102, 194);
+            background-color: #70b5f933;
+            box-shadow: 0 0 0 2px #0a66c2;
+            color: #0a66c2;
+          }
         }
+      }
     }
+  }
+}
+
+.netNavFooter {
+  div {
+    width: 25rem;
+    // border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    // letter-spacing: 0.1cm;
+    justify-content: center;
+    p {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 0.5cm;
+      margin-left: 1.3rem;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: rgb(10, 102, 194);
+      }
+    }
+    .netNavPrivate {
+      margin-top: 0px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.3rem;
+    }
+  }
 }

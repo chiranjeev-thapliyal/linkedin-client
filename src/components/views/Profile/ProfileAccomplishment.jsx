@@ -1,12 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import CardHeader from './CardHeader';
 import Divider from './Divider';
 import ProfileAccomplishmentCard from './ProfileAccomplishmentCard';
 
-export default function ProfileAccomplishment() {
-  const { userDetails } = useContext(AuthContext);
+export default function ProfileAccomplishment({userDetails}) {
+  // const { userID } = useParams();
+  // const [userDetails, setUserDetails] = useState({});
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080/profile/${userID}`)
+  //     .then(({ data }) => {
+  //       console.log('data: ', data);
+  //       setUserDetails({ ...data.profile });
+  //     })
+  //     .catch((e) => console.log('something went wrong'));
+  // }, []);
   const data = userDetails?.accomplishments;
 
   return data ? (

@@ -5,7 +5,7 @@ import { toCapitalize } from '../../../utils/common.utils';
 const Connection = ({ user, handleChat }) => {
   const { messages } = useContext(AuthContext);
   const allMessages = messages[user._id];
-  const lastMessage = allMessages?.at(-1);
+  const lastMessage = allMessages?.at(-1); 
   return (
     <div
       className='connection'

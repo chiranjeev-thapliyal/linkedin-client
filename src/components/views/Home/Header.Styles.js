@@ -195,7 +195,7 @@ export const Signout = styled.div`
       padding: 0.3rem 1.2rem;
       border-radius: 1.6rem;
       color: #0a66c2;
-      box-shadow: inset 0 0 0 2px #0a66c2;
+      box-shadow: inset 0 0 0 1px #0a66c2;
 
       width: 100%;
       margin: 1rem auto;

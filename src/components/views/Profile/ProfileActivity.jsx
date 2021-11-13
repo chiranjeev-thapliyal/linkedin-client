@@ -1,8 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-export default function ProfileActivity() {
-  const { userDetails } = useContext(AuthContext);
+export default function ProfileActivity({userDetails}) {
+  // const { userID } = useParams();
+  // const [userDetails, setUserDetails] = useState({});
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080/profile/${userID}`)
+  //     .then(({ data }) => {
+  //       console.log('data: ', data);
+  //       setUserDetails({ ...data.profile });
+  //     })
+  //     .catch((e) => console.log('something went wrong'));
+  // }, []);
+
   const data = userDetails?.activity;
 
   return userDetails?.activity?.length > 0 ? (

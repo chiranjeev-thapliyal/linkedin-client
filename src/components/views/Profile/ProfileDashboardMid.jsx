@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 
-export default function ProfileDashboardMid() {
-    const { userDetails } = useContext(AuthContext);
-  const profileViews = userDetails?.profile_views || 0;
-  const postViews = userDetails?.posts_views || 0;
-  const searchViews = userDetails?.search_appearances || 0;
+export default function ProfileDashboardMid({ userDetails }) {
+  const profileViews = userDetails.profile_views || 0;
+  const postViews = userDetails.posts_views || 0;
+  const searchViews = userDetails.search_appearances || 0;
 
   return (
     <div>

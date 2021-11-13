@@ -1,8 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-export default function ProfileAbout() {
-  const { userDetails } = useContext(AuthContext);
+export default function ProfileAbout({userDetails}) {
+  // const { userID } = useParams();
+  // const [userDetails, setUserDetails] = useState({});
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080/profile/${userID}`)
+  //     .then(({ data }) => {
+  //       console.log('data: ', data);
+  //       setUserDetails({ ...data.profile });
+  //     })
+  //     .catch((e) => console.log('something went wrong'));
+  // }, []);
 
   let aboutTxt = userDetails?.about || '';
 
@@ -20,7 +33,7 @@ export default function ProfileAbout() {
 
       <div className='PAMD-Header flex-sb editButton'>
         <h2>About</h2>
-        <img src='icons/editButton.svg' alt='editButton' />
+        <img src='/icons/editButton.svg' alt='editButton' />
       </div>
 
       <div className='aboutMePre'>

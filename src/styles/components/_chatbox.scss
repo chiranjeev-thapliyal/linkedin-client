@@ -16,12 +16,12 @@
   margin-right: 5rem;
 
   &-open {
-    height: 40rem;
+    // height: 40rem;
     max-width: 33.6rem;
   }
 
   &-close {
-    height: 4.7rem;
+    // height: 4.7rem;
     max-width: 23.6rem;
   }
 
@@ -150,11 +150,10 @@
           color: #fff;
         }
 
-        &::after{
+        &::after {
           content: 'Latest Message';
           color: white;
         }
-
       }
 
       & > div {
@@ -268,6 +267,17 @@
     width: 100%;
     background-color: $color-white;
     z-index: 1;
+    position: relative;
+    overflow-x: hidden;
+
+    &::before {
+      content: '';
+      height: 2px;
+      position: absolute;
+      top: 0;
+      width: 200%;
+      background-color: #00000014;
+    }
 
     & > .new-message {
       display: flex;

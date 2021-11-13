@@ -7,7 +7,7 @@ export default function ProfileDashboardBottom() {
       <div className='flex-col'>
         <div className='flex-row '>
           <div className='PDB-ImageBox'>
-            <img src='icons/creatorIcon.svg' alt='' />
+            <img src='/icons/creatorIcon.svg' alt='' />
           </div>
 
           <div className='flex-col ml1rem'>
@@ -29,7 +29,7 @@ export default function ProfileDashboardBottom() {
         {/* My Network */}
         <div className='flex-row'>
           <div className='PDB-ImageBox'>
-            <img src='icons/myNetwork.svg' alt='' />
+            <img src='/icons/myNetwork.svg' alt='' />
           </div>
 
           <div className='flex-col ml1rem'>
@@ -47,7 +47,7 @@ export default function ProfileDashboardBottom() {
         {/* Salary */}
         <div className='flex-row '>
           <div className='PDB-ImageBox'>
-            <img src='icons/Salary.svg' alt='' />
+            <img src='/icons/Salary.svg' alt='' />
           </div>
 
           <div className='flex-col ml1rem'>
@@ -66,7 +66,7 @@ export default function ProfileDashboardBottom() {
         {/* MyItems */}
         <div className='flex-row'>
           <div className='PDB-ImageBox'>
-            <img src='icons/myItems.svg' alt='' />
+            <img src='/icons/myItems.svg' alt='' />
           </div>
 
           <div className='flex-col ml1rem'>

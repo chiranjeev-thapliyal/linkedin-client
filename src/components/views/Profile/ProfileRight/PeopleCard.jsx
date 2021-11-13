@@ -1,45 +1,38 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../Contexts/AuthContextProvider';
+import { Link } from 'react-router-dom';
 
-export default function PeopleCard({ user, btn, imgUrl, name, title }) {
-  const { token, userDetails, setUserDetails } = useContext(AuthContext);
+export default function PeopleCard({
+  connection,
+  userDetails,
+  text,
+  imgUrl,
+  name,
+  title,
+}) {
+  const { token, handleChat, messages } = useContext(AuthContext);
+  const allMessages = messages?.[connection._id] || [];
+
   const [pending, setPending] = useState(false);
+
+  const isConnection = (friendID) => {
+    const total = userDetails?.connections?.filter(
+      ({ _id }) => friendID === _id
+    );
+    return total && total.length > 0;
+  };
+
   if (title.length > 65) {
     title = title.slice(0, 65) + '...';
   }
 
-  useEffect(() => {
-    if (userDetails) {
-      const found = userDetails.pendingSent?.filter(
-        (item) => item === user._id
-      );
-      if (found && found.length > 0) setPending(true);
+  const handleClick = (text) => {
+    if (text === 'Message') {
+      console.log(text);
+      handleChat(connection, allMessages);
+    } else {
     }
-  }, [userDetails]);
-
-  const handleSendRequest = () => {
-    axios
-      .post(
-        'http://localhost:8080/users/send-request',
-        {
-          id: user._id,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then(() => {
-        console.log('sent request');
-        setPending(true);
-        const newPending = userDetails.pendingReceived.filter(
-          (item) => item._id !== user._id
-        );
-        setUserDetails({ ...userDetails, pendingReceived: [...newPending] });
-      })
-      .catch((e) => console.log('error while sending request!'));
   };
 
   return (
@@ -50,12 +43,24 @@ export default function PeopleCard({ user, btn, imgUrl, name, title }) {
         </div>
         <div className='flex-col ml1rem'>
           <strong>
-            {' '}
-            <p>{name}</p>{' '}
+            <p>
+              <a href={`/profile/${connection._id}`}>{name}</a>
+            </p>
           </strong>
           <p className='small'>{title}</p>
-          <button onClick={handleSendRequest} className='btn-connection'>
-            {pending ? 'Pending' : btn}
+          <button
+            onClick={() =>
+              handleClick(
+                text === 'People also viewed' && isConnection(connection._id)
+                  ? 'Message'
+                  : 'Connect'
+              )
+            }
+            className='btn-connection'
+          >
+            {text === 'People also viewed' && isConnection(connection._id)
+              ? 'Message'
+              : 'Connect'}
           </button>
         </div>
       </div>

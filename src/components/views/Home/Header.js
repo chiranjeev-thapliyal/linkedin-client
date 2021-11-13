@@ -10,11 +10,6 @@ export default function Header() {
   const { userDetails } = useContext(AuthContext);
   const [signout, setSignOut] = useState(false);
 
-  // const handleClick = () => {
-  //   setSignOut(!signout);
-  //   console.log('changed',signout);
-  // }
-
   const fullName =
     toCapitalize(userDetails.first_name) +
     ' ' +
@@ -26,9 +21,9 @@ export default function Header() {
     <S.Container>
       <S.Content>
         <S.Logo>
-          <Link to='/home'>
+          <a href='/home'>
             <img src='/images/home-logo.svg' alt='' />
-          </Link>
+          </a>
         </S.Logo>
 
         <S.Search>
@@ -43,34 +38,34 @@ export default function Header() {
         <S.Nav>
           <S.Wrapper>
             <S.NavList>
-              <NavLink to='/home'>
+              <a href='/home'>
                 <img src='/images/nav-home.svg' alt='' />
                 <span>Home</span>
-              </NavLink>
+              </a>
             </S.NavList>
             <S.NavList>
-              <NavLink to='/my-networks'>
+              <a href='/my-networks'>
                 <img src='/images/nav-network.svg' alt='' />
                 <span>My Network</span>
-              </NavLink>
+              </a>
             </S.NavList>
             <S.NavList>
-              <NavLink to='/jobs'>
+              <a href='/jobs'>
                 <img src='/images/nav-jobs.svg' alt='' />
                 <span>Jobs</span>
-              </NavLink>
+              </a>
             </S.NavList>
             <S.NavList>
-              <NavLink to='/messaging'>
+              <a href='/messaging'>
                 <img src='/images/nav-messaging.svg' alt='' />
                 <span>Messaging</span>
-              </NavLink>
+              </a>
             </S.NavList>
             <S.NavList>
-              <NavLink to='/notification'>
+              <a href='/notification'>
                 <img src='/images/nav-notifications.svg' alt='' />
                 <span>Notifications</span>
-              </NavLink>
+              </a>
             </S.NavList>
 
             <S.User
@@ -105,9 +100,12 @@ export default function Header() {
                       <p>{userDetails.description}</p>
                     </div>
                   </div>
-                  <Link className='btn-profile' to='/profile'>
+                  <a
+                    href={`/profile/${userDetails._id}`}
+                    className='btn-profile'
+                  >
                     View Profile
-                  </Link>
+                  </a>
                 </div>
 
                 <div className='accountSettings'>

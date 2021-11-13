@@ -10,40 +10,23 @@ import More from '../More';
 import PeopleCard from './PeopleCard';
 
 export default function Middle({ text }) {
-  const { userDetails, token } = useContext(AuthContext);
+  const { token, userDetails } = useContext(AuthContext);
+  
   const [data, setData] = useState([]);
-
-  if (
-    userDetails &&
-    userDetails.recommendations &&
-    userDetails.recommendations.length > 0
-  ) {
-    setData([...userDetails?.recommendations]);
-  }
+  const [connectionIDs, setConnectionIDs] = useState([]);
 
   useEffect(() => {
-    if (!data || data.length < 10) {
-      axios
-        .get(`http://localhost:8080/users/recommendations`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(({ data }) => {
-          setData([...data.recommendations]);
-        })
-        .catch((e) =>
-          console.log('error while getting recommendations {profile}')
-        );
-    }
-  }, []);
-
-  const isConnection = (friendID) => {
-    const total = userDetails?.recommendations?.filter(
-      ({ _id }) => friendID === _id
-    );
-    return total && total.length > 0;
-  };
+    axios
+      .get(`http://localhost:8080/users/recommendations`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {
+        setData([...data.recommendations]);
+      })
+      .catch((e) => console.error('error getting recommendations'));
+  }, [userDetails]);
 
   return (
     <div className='userProfileRightMiddle UPR'>
@@ -53,11 +36,13 @@ export default function Middle({ text }) {
 
       <div>
         {data &&
+          userDetails &&
           data.map((e) => (
             <div className='peopleCardSingle mt2rem '>
               <PeopleCard
-                user={e}
-                btn={isConnection(e._id) ? 'Message' : 'Connect'}
+                connection={e}
+                userDetails={userDetails}
+                text={text}
                 imgUrl={checkProfileImage(e.profile_img)}
                 name={
                   toCapitalize(e.first_name) + ' ' + toCapitalize(e.last_name)

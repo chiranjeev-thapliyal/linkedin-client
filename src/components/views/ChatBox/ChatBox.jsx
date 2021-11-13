@@ -147,7 +147,7 @@ const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
             <button>
               <MessengerUpArrow />
             </button>
-          </div>
+          </div> 
         </div>
         <footer>
           <div className='form-left-actions'>

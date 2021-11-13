@@ -24,6 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   const [messages, setMessages] = useState({});
   const [userDetails, setUserDetails] = useState({});
   const [feedPosts, setFeedPosts] = useState([]);
+  const [chats, setChats] = useState([]);
 
   const socket = io.connect('http://localhost:8080');
   useEffect(() => {
@@ -88,6 +89,17 @@ export const AuthContextProvider = ({ children }) => {
     setID(id);
     setNewMessage({});
 
+    try {
+      axios
+        .get(`http://localhost:8080/users/email/${email}`)
+        .then(({ data }) => {
+          setUserDetails({ ...data.user });
+        })
+        .catch((e) => console.log('error while getting user'));
+    } catch (e) {
+      console.log('Please check email');
+    }
+
     const loggedUser = { token, email, id };
     localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
   };
@@ -105,6 +117,25 @@ export const AuthContextProvider = ({ children }) => {
     setFeedPosts([post, ...feedPosts]);
   };
 
+  const handleRemoveChat = (id) => {
+    const newChats = chats?.filter((friend) => friend._id !== id);
+    setChats([...newChats]);
+  };
+
+  // Handler for active chat boxes
+  const handleChat = (friend) => {
+    for (const temp of chats) {
+      console.log('temp: ', temp, 'chats: ', chats, friend);
+      if (!temp?.key?._id || temp?.key?._id === friend._id) return;
+    }
+
+    if (chats.length === 4) {
+      setChats(chats.splice(1, 1));
+    }
+
+    setChats([...chats, friend]);
+  };
+
   const value = {
     handleLogin,
     handleLogout,
@@ -120,6 +151,10 @@ export const AuthContextProvider = ({ children }) => {
     userDetails,
     feedPosts,
     setUserDetails,
+    chats,
+    setChats,
+    handleRemoveChat,
+    handleChat,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

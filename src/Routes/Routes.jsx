@@ -23,9 +23,6 @@ export const Routes = () => {
         <PrivateRoute exact={true} path='/notification'>
           <Notification />
         </PrivateRoute>
-        <PrivateRoute exact={true} path='/profile'>
-          <Profile />
-        </PrivateRoute>
         <PrivateRoute exact={true} path='/my-networks'>
           <NetworksPage />
         </PrivateRoute>

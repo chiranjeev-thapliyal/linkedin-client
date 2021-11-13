@@ -15,41 +15,31 @@ import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import axios from 'axios';
 
 export default function Profile() {
-  const [isUser, setIsUser] = useState(true);
   const { userID } = useParams();
-  const { userDetails } = useContext(AuthContext);
-
-  const [userProfile, setUserProfile] = useState();
+  const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {
-    if (userID === userDetails._id) {
-      setUserProfile(userDetails);
-    } else {
-      axios
-        .get(`http://localhost:8080/profile/${userID}`)
-        .then(({ data }) => setUserProfile(data.profile))
-        .catch((e) => setIsUser(false));
-    }
+    axios
+      .get(`http://localhost:8080/profile/${userID}`)
+      .then(({ data }) => {
+        console.log('data: ', data);
+        setUserDetails({ ...data.profile });
+      })
+      .catch((e) => console.log('something went wrong'));
   }, []);
 
-  if (!isUser) {
-    return <Redirect to='/home' />;
-  }
-
-  return (
+  return userDetails && userDetails.first_name ? (
     <div className='profileMainDiv'>
       <div className='flex-row'>
         <div className='profileLeftDiv'>
-          <ProfileFrontCard />
-          {userProfile && userProfile._id === userDetails._id && (
-            <ProfileDashBoard />
-          )}
-          <ProfileAbout />
-          <ProfileActivity />
-          <ExperienceAndEducation />
-          <SkillsAndEndorsements />
-          <ProfileAccomplishment />
-          <ProfileInterests />
+          <ProfileFrontCard userDetails={userDetails} />
+          <ProfileDashBoard userDetails={userDetails}/>
+          <ProfileAbout userDetails={userDetails}/>
+          <ProfileActivity userDetails={userDetails}/>
+          <ExperienceAndEducation userDetails={userDetails}/>
+          <SkillsAndEndorsements userDetails={userDetails}/>
+          <ProfileAccomplishment userDetails={userDetails}/>
+          <ProfileInterests userDetails={userDetails}/>
         </div>
 
         <div className='profileRightDiv'>
@@ -62,5 +52,7 @@ export default function Profile() {
 
       <ProfileFooter />
     </div>
+  ) : (
+    ''
   );
 }

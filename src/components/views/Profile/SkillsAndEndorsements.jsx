@@ -1,11 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import Divider from './Divider';
 import More from './More';
 import SkillsAndEndorsementsCard from './SkillsAndEndorsementsCard';
 
-export default function SkillsAndEndorsements() {
-  const { userDetails } = useContext(AuthContext);
+export default function SkillsAndEndorsements( {userDetails}) {
+  // const { userID } = useParams();
+  // const [userDetails, setUserDetails] = useState({});
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080/profile/${userID}`)
+  //     .then(({ data }) => {
+  //       console.log('data: ', data);
+  //       setUserDetails({ ...data.profile });
+  //     })
+  //     .catch((e) => console.log('something went wrong'));
+  // }, []);
   const data = userDetails?.endorsements;
 
   return data ? (
@@ -17,7 +30,7 @@ export default function SkillsAndEndorsements() {
           <h3 style={{ marginTop: '1rem', cursor: 'pointer' }}>
             Add a new skill
           </h3>
-          <img src='icons/editButton.svg' alt='editButton' />
+          <img src='/icons/editButton.svg' alt='editButton' />
         </div>
       </div>
       {/* Skill quiz button */}
@@ -28,8 +41,8 @@ export default function SkillsAndEndorsements() {
           <div>
             <SkillsAndEndorsementsCard
               title={e.title}
-              num={e.num}
-              fname={e.fname}
+              num={'17'}
+              fname={'Rishabh'}
             />
             <Divider />
           </div>
