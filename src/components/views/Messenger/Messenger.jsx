@@ -7,7 +7,13 @@ import ChatBox from '../ChatBox/ChatBox';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 
 const Messenger = () => {
-  const { messenger: users, chats, setChats, handleRemoveChat, handleChat } = useContext(AuthContext);
+  const {
+    messenger: users,
+    chats,
+    setChats,
+    handleRemoveChat,
+    handleChat,
+  } = useContext(AuthContext);
   // const [users, setUsers] = useState([]);
   // const [messages, setMessages] = useState({});
   const [open, setOpen] = useState(false);

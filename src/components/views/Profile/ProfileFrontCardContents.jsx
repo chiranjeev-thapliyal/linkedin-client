@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import { toCapitalize } from '../../../utils/common.utils';
 
 export default function ProfileFrontCardContents({ userDetails }) {
+  const { userID } = useParams();
+  const { id } = useContext(AuthContext);
   const { userDetails: loggedUser, token, handleChat, messages } = useContext(AuthContext);
   const allMessages = messages?.[userDetails._id] || [];
 
@@ -46,7 +49,7 @@ export default function ProfileFrontCardContents({ userDetails }) {
   return loggedUser && loggedUser._id ? (
     <div className='ProfileFrontCardContents'>
       <div className='editButton flex-rowR editButtonMar'>
-        <img src='/icons/editButton.svg' alt='edit' />
+      {userID === id ? <img src='/icons/editButton.svg' alt='editButton' /> : <img />}
       </div>
       <div className='flex-sb'>
         <div class='PFCC-LeftPanel mt-15rem positionRelative'>

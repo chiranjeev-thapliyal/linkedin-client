@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContextProvider';
 import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
@@ -7,6 +7,7 @@ import NetworksLink from '../../assets/svg/NetworksLink';
 
 const InviteItem = ({ connection }) => {
   const { token } = useContext(AuthContext);
+  const [isAccepted, setIsAccepted] = useState(false);
 
   const handleAccept = () => {
     axios

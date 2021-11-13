@@ -23,7 +23,7 @@ export default function ExperienceAndEducation({ userDetails }) {
 
   const educationData = userDetails?.education;
 
-  return experienceData || educationData ? (
+  return experienceData?.length > 0 || educationData.length > 0 ? (
     <div className='ExperienceAndEducationMainDiv PMD'>
       {/* Experience section starts here */}
       {experienceData && (

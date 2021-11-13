@@ -46,7 +46,6 @@ const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
   // }, [newMessage]);
 
   useEffect(() => {
-    console.log('found new message: ');
     if (
       (newMessage?.sender?._id === id &&
         newMessage?.receiver?._id === friendId) ||
@@ -71,6 +70,7 @@ const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
 
   const handleSubmit = (toID) => {
     socket.emit('send-message', id, toID, text);
+    setText('');
   };
 
   return (
@@ -141,13 +141,14 @@ const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
           <div className='new-message-input'>
             <textarea
               onChange={handleInput}
+              value={text}
               name='new-message-txt'
               placeholder='Write a message...'
             ></textarea>
             <button>
               <MessengerUpArrow />
             </button>
-          </div> 
+          </div>
         </div>
         <footer>
           <div className='form-left-actions'>
@@ -167,7 +168,9 @@ const ChatBox = ({ handleRemoveChat, friend, friendId }) => {
           <div className='form-right-actions'>
             <button
               id='chat-send'
-              className='btn-disabled'
+              className={
+                text.trim().length === 0 ? 'btn-disabled' : 'btn-enabled'
+              }
               onClick={(e) => {
                 e.preventDefault();
                 handleSubmit(friendId);

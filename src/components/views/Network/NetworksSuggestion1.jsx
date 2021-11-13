@@ -19,7 +19,21 @@ export const NetworkSuggestion1 = ({ heading1, userDetails }) => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then(({ data }) => setRecommendations([...data.recommendations]))
+        .then(({ data }) => {
+          console.log('data: ', data);
+          const filteredRecommendation = data.recommendations.filter((item) => {
+            let filteredArray = userDetails.connections.filter((connect) => {
+              return connect._id === item._id;
+            })
+
+            let newFilterArray = userDetails.pendingReceived.filter((connect) => {
+              return connect._id === item._id;
+            })
+
+            if (filteredArray.length === 0 && newFilterArray.length === 0) return item;
+          });
+          setRecommendations([...filteredRecommendation]);
+        })
         .catch((e) => console.error("Can't fetch recommendations"));
     }
   }, [userDetails]);
@@ -33,8 +47,11 @@ export const NetworkSuggestion1 = ({ heading1, userDetails }) => {
       <div className='NetSuggestionsAll'>
         {recommendations.map((connection, i) => {
           return (
-            <div key={connection.id} className='NetworkSuggestions'>
-              <NetworkSuggestionItem {...connection} />
+            <div key={connection._id} className='NetworkSuggestions'>
+              <NetworkSuggestionItem
+                userDetails={userDetails}
+                {...connection}
+              />
             </div>
           );
         })}

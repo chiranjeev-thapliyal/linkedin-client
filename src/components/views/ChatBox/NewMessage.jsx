@@ -2,7 +2,6 @@ import React from 'react';
 import { checkProfileImage, toCapitalize } from '../../../utils/common.utils';
 
 const NewMessage = ({ msg }) => {
-  console.log('new msg: ', msg);
   const fullName = `${toCapitalize(msg?.sender?.first_name)} ${toCapitalize(
     msg?.sender?.last_name
   )}`;

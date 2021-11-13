@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export default function ProfileAbout({userDetails}) {
-  // const { userID } = useParams();
+  const { userID } = useParams();
+  const { id } = useContext(AuthContext);
   // const [userDetails, setUserDetails] = useState({});
 
   // useEffect(() => {
@@ -33,7 +34,7 @@ export default function ProfileAbout({userDetails}) {
 
       <div className='PAMD-Header flex-sb editButton'>
         <h2>About</h2>
-        <img src='/icons/editButton.svg' alt='editButton' />
+        {userID === id && <img src='/icons/editButton.svg' alt='editButton' />}
       </div>
 
       <div className='aboutMePre'>

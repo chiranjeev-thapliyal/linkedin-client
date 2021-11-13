@@ -21,7 +21,7 @@ export default function SkillsAndEndorsements( {userDetails}) {
   // }, []);
   const data = userDetails?.endorsements;
 
-  return data ? (
+  return data?.length > 0 ? (
     <div className='SkillsAndEndorsementsMainDiv PMD'>
       <div className='SkillsAndEndorsementsHeader flex-sb  editButton'>
         <h2>Skills & endorsements</h2>

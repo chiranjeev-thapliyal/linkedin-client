@@ -21,7 +21,7 @@ export default function ProfileInterests( {userDetails}) {
   // }, []);
   const data = userDetails?.interests;
 
-  return data ? (
+  return data?.length > 0 ? (
     <div className='ProfileInterestsMainDiv PMD'>
       <CardHeader title='Interests' />
 
